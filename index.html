@@ -211,27 +211,43 @@
         <img src="ropa.jpg" alt="Ropa">
         <p>Ropa</p>
         <p>$20.00</p>
-        <button onclick="mostrarCategorias()">Elegir</button>
+        <button onclick="mostrarCategorias('ropa')">Elegir</button>
         <div class="categorias" id="categorias-ropa">
           <h3>Elige una categoría:</h3>
           <ul>
-            <li><a href="#mujer">Mujer</a></li>
+            <li><a href="#senora">Señora</a></li>
             <li><a href="#caballero">Caballero</a></li>
-            <li><a href="#nino">Niño</a></li>
+            <li><a href="#nino">Niñ@</a></li>
           </ul>
         </div>
       </div>
       <div class="producto">
-        <img src="zapatos.jpg" alt="Zapatos">
-        <p>Zapatos</p>
+        <img src="calzado.jpg" alt="Calzado">
+        <p>Calzado</p>
         <p>$30.00</p>
-        <button>Elegir</button>
+        <button onclick="mostrarCategorias('calzado')">Elegir</button>
+        <div class="categorias" id="categorias-calzado">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="#senora">Señora</a></li>
+            <li><a href="#caballero">Caballero</a></li>
+            <li><a href="#nino">Niñ@</a></li>
+          </ul>
+        </div>
       </div>
       <div class="producto">
         <img src="ropa-interior.jpg" alt="Ropa interior">
         <p>Ropa interior</p>
         <p>$25.00</p>
-        <button>Elegir</button>
+        <button onclick="mostrarCategorias('ropa-interior')">Elegir</button>
+        <div class="categorias" id="categorias-ropa-interior">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="#senora">Señora</a></li>
+            <li><a href="#caballero">Caballero</a></li>
+            <li><a href="#nino">Niñ@</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -257,8 +273,11 @@
   </footer>
 
   <script>
-    function mostrarCategorias() {
-      document.getElementById("categorias-ropa").style.display = "block";
+    function mostrarCategorias(categoria) {
+      const categorias = document.querySelectorAll('.categorias');
+      categorias.forEach(c => c.style.display = 'none');
+      
+      document.getElementById(`categorias-${categoria}`).style.display = 'block';
     }
   </script>
 </body>
