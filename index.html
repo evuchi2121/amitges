@@ -206,11 +206,34 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 10px;
       display: none;
+      max-width: 200px;
+      overflow-y: auto;
     }
 
     .carrito-contenido p {
       margin: 0;
       font-size: 1.1em;
+    }
+
+    .carrito-contenido ul {
+      padding: 0;
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .carrito-contenido ul li {
+      font-size: 1em;
+    }
+
+    .carrito-contenido button {
+      background-color: #402A3C;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
     }
   </style>
 </head>
@@ -235,6 +258,7 @@
       <button class="carrito-btn" onclick="toggleCarrito()">Carrito (0)</button>
       <div class="carrito-contenido" id="carrito-contenido">
         <p>No hay productos en el carrito</p>
+        <button onclick="vaciarCarrito()">Vaciar carrito</button>
       </div>
     </div>
   </header>
@@ -323,9 +347,23 @@
 
     function agregarAlCarrito(producto) {
       carrito.push(producto);
-      document.querySelector('.carrito-btn').textContent = `Carrito (${carrito.length})`;
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
       const carritoContenido = document.getElementById('carrito-contenido');
-      carritoContenido.innerHTML = `<p>Productos en el carrito:</p><ul>${carrito.map(item => `<li>${item}</li>`).join('')}</ul>`;
+      const carritoBtn = document.querySelector('.carrito-btn');
+      carritoBtn.textContent = `Carrito (${carrito.length})`;
+      if (carrito.length === 0) {
+        carritoContenido.innerHTML = `<p>No hay productos en el carrito</p><button onclick="vaciarCarrito()">Vaciar carrito</button>`;
+      } else {
+        carritoContenido.innerHTML = `<p>Productos en el carrito:</p><ul>${carrito.map(item => `<li>${item}</li>`).join('')}</ul><button onclick="vaciarCarrito()">Vaciar carrito</button>`;
+      }
+    }
+
+    function vaciarCarrito() {
+      carrito = [];
+      actualizarCarrito();
     }
 
     function toggleCategorias(categoria) {
