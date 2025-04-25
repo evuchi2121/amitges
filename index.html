@@ -56,7 +56,7 @@
 
     .banner {
       background-color: #F3EDF1;
-      padding: 100px 20px;
+      padding: 100px 20px 60px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -69,7 +69,7 @@
       left: 50%;
       width: 400px;
       height: 400px;
-      background-image: url('logo-fondo.png'); /* Asegúrate de tener esta imagen */
+      background-image: url('logo-fondo.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
@@ -86,34 +86,15 @@
       z-index: 2;
     }
 
+    .separador {
+      border-top: 2px solid #f7cfe6; /* rosa suave */
+      margin: 0 20px 40px;
+    }
+
     .productos-destacados {
       padding: 50px 20px;
       text-align: center;
-      position: relative;
       background-color: #F3EDF1;
-      overflow: hidden;
-    }
-
-    .productos-destacados h2,
-    .productos-destacados .productos {
-      position: relative;
-      z-index: 2;
-    }
-
-    .productos-destacados::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 400px;
-      height: 400px;
-      background-image: url('logo-fondo.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      opacity: 0.05;
-      transform: translate(-50%, -50%);
-      z-index: 1;
     }
 
     .productos {
@@ -195,10 +176,13 @@
     </nav>
   </header>
 
-  <!-- Banner con logo de fondo -->
+  <!-- Banner -->
   <section class="banner" id="home">
-    <h1>Verano SS 25</h1>
+    <h1>¡Verano SS 25!</h1>
   </section>
+
+  <!-- Línea de separación -->
+  <div class="separador"></div>
 
   <!-- Productos destacados -->
   <section class="productos-destacados" id="shop">
