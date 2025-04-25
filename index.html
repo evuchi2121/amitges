@@ -56,25 +56,28 @@
 
     .banner {
       background-color: #F3EDF1;
-      padding: 60px 20px;
+      padding: 100px 20px 40px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .banner h1 {
-      font-size: 2.8em;
-      margin: 0;
-      color: #5A3D57;
+    .banner img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .linea-morada {
+      height: 2px;
+      background-color: #5A3D57;
+      width: 80%;
+      margin: 20px auto;
     }
 
     .productos-destacados {
       padding: 50px 20px;
       text-align: center;
-      background-color: white;
-    }
-
-    .productos-destacados h2 {
-      font-size: 2.2em;
-      margin-bottom: 40px;
+      background-color: #F3EDF1;
     }
 
     .productos {
@@ -112,24 +115,44 @@
       background-color: #402A3C;
     }
 
-    .categoria {
+    .categorias {
       display: none;
       margin-top: 30px;
+      background-color: #F3EDF1;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(90, 61, 87, 0.1);
+    }
+
+    .categorias ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .categorias ul li {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .linea-separadora {
+      height: 2px;
+      background-color: #5A3D57;
+      width: 80%;
+      margin: 50px auto;
+    }
+
+    .sobre-nosotras, .contacto {
+      background-color: #F3EDF1;
+      padding: 50px 20px;
       text-align: center;
     }
 
-    .categoria a {
-      display: inline-block;
-      margin: 10px;
-      background-color: #5A3D57;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-
-    .categoria a:hover {
-      background-color: #402A3C;
+    .sobre-nosotras p,
+    .contacto p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: auto;
     }
 
     footer {
@@ -140,14 +163,13 @@
       font-size: 0.95em;
     }
 
-    .linea {
-      border-top: 2px solid #5A3D57;
-      margin: 40px 0;
+    /* Fondo blanco desde ¡Verano SS 25! hasta Sobre nosotras */
+    .fondo-blanco {
+      background-color: #FFFFFF;
     }
   </style>
 </head>
 <body>
-
   <!-- Encabezado -->
   <header>
     <div class="logo">
@@ -164,56 +186,73 @@
   </header>
 
   <!-- Banner -->
-  <section class="banner">
-    <h1>¡Verano SS 25!</h1>
+  <section class="banner" id="home">
+    <!-- Imagen del banner (en lugar de "¡Verano SS 25!") -->
+    <img src="imagen-banner.jpg" alt="Verano SS 25">
   </section>
 
-  <!-- Productos destacados -->
-  <section class="productos-destacados" id="shop">
-    <h2>¡Verano SS 25!</h2>
+  <!-- Línea morada sin fondo blanco -->
+  <div class="linea-morada"></div>
 
-    <!-- Recuadros de selección -->
+  <!-- Productos destacados con fondo blanco -->
+  <section class="productos-destacados fondo-blanco" id="shop">
+    <h2>¡Verano SS 25!</h2>
     <div class="productos">
       <div class="producto">
-        <h3>Ropa</h3>
-        <button onclick="toggleCategory('ropa')">Elegir</button>
-        <div id="ropa" class="categoria">
-          <a href="#" onclick="showSubCategory('ropa-senora')">Señora</a>
-          <a href="#" onclick="showSubCategory('ropa-caballero')">Caballero</a>
-          <a href="#" onclick="showSubCategory('ropa-nino')">Niñ@</a>
+        <p>Ropa</p>
+        <button onclick="toggleCategorias('ropa')">Elegir</button>
+        <div class="categorias" id="categorias-ropa">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="ropa-senora.html">Señora</a></li>
+            <li><a href="ropa-caballero.html">Caballero</a></li>
+            <li><a href="ropa-nino.html">Niñ@</a></li>
+          </ul>
         </div>
       </div>
-
       <div class="producto">
-        <h3>Calzado</h3>
-        <button onclick="toggleCategory('calzado')">Elegir</button>
-        <div id="calzado" class="categoria">
-          <a href="#">Señora</a>
-          <a href="#">Caballero</a>
-          <a href="#">Niñ@</a>
+        <p>Calzado</p>
+        <button onclick="toggleCategorias('calzado')">Elegir</button>
+        <div class="categorias" id="categorias-calzado">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="calzado-senora.html">Señora</a></li>
+            <li><a href="calzado-caballero.html">Caballero</a></li>
+            <li><a href="calzado-nino.html">Niñ@</a></li>
+          </ul>
         </div>
       </div>
-
       <div class="producto">
-        <h3>Ropa interior</h3>
-        <button onclick="toggleCategory('ropa-interior')">Elegir</button>
-        <div id="ropa-interior" class="categoria">
-          <a href="#">Señora</a>
-          <a href="#">Caballero</a>
-          <a href="#">Niñ@</a>
+        <p>Ropa interior</p>
+        <button onclick="toggleCategorias('ropa-interior')">Elegir</button>
+        <div class="categorias" id="categorias-ropa-interior">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="ropa-interior-senora.html">Señora</a></li>
+            <li><a href="ropa-interior-caballero.html">Caballero</a></li>
+            <li><a href="ropa-interior-nino.html">Niñ@</a></li>
+          </ul>
         </div>
       </div>
     </div>
-
-    <!-- Línea divisoria -->
-    <div class="linea"></div>
-
   </section>
 
+  <!-- Línea separadora entre productos y "Sobre nosotras" -->
+  <div class="linea-separadora"></div>
+
   <!-- Sobre nosotras -->
-  <section class="sobre-nosotras" id="about">
+  <section class="sobre-nosotras fondo-blanco" id="about">
     <h2>Sobre nosotras</h2>
     <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜</p>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto fondo-blanco" id="contact">
+    <h2>Contacto</h2>
+    <p>Teléfono: 640 897645</p>
+    <p>Email: <a href="mailto:amitgesbyreyesyyoli@gmail.com">amitgesbyreyesyyoli@gmail.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/amitgesbyreyesyyoli" target="_blank">@amitgesbyreyesyyoli</a></p>
+    <p>Dirección: Avenida Castellón, 30, Benicasim, Castellón</p>
   </section>
 
   <!-- Pie de página -->
@@ -221,24 +260,20 @@
     <p>&copy; 2025 Amitges by Reyes & Yoli</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // Función para mostrar y ocultar categorías
-    function toggleCategory(category) {
-      var categoryElement = document.getElementById(category);
-      if (categoryElement.style.display === "block") {
-        categoryElement.style.display = "none";
+    function toggleCategorias(categoria) {
+      const categorias = document.querySelectorAll('.categorias');
+      const categoriaElemento = document.getElementById(`categorias-${categoria}`);
+
+      // Toggle la visibilidad de la categoría
+      if (categoriaElemento.style.display === 'block') {
+        categoriaElemento.style.display = 'none';
       } else {
-        categoryElement.style.display = "block";
+        // Ocultar todas las demás categorías
+        categorias.forEach(c => c.style.display = 'none');
+        categoriaElemento.style.display = 'block';
       }
     }
-
-    // Función para cambiar a la subcategoría
-    function showSubCategory(category) {
-      alert("Cargando productos para: " + category);
-      // Aquí puedes agregar el código para redirigir o mostrar más información de cada categoría
-    }
   </script>
-
 </body>
 </html>
