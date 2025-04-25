@@ -212,7 +212,6 @@
       margin: 0;
       font-size: 1.1em;
     }
-
   </style>
 </head>
 <body>
@@ -258,9 +257,9 @@
         <div class="categorias" id="categorias-ropa">
           <h3>Elige una categoría:</h3>
           <ul>
-            <li><a href="ropa-senora.html">Señora</a></li>
-            <li><a href="ropa-caballero.html">Caballero</a></li>
-            <li><a href="ropa-nino.html">Niñ@</a></li>
+            <li><a href="ropa-senora.html" onclick="agregarAlCarrito('Ropa - Señora')">Señora</a></li>
+            <li><a href="ropa-caballero.html" onclick="agregarAlCarrito('Ropa - Caballero')">Caballero</a></li>
+            <li><a href="ropa-nino.html" onclick="agregarAlCarrito('Ropa - Niñ@')">Niñ@</a></li>
           </ul>
         </div>
       </div>
@@ -270,9 +269,9 @@
         <div class="categorias" id="categorias-calzado">
           <h3>Elige una categoría:</h3>
           <ul>
-            <li><a href="calzado-senora.html">Señora</a></li>
-            <li><a href="calzado-caballero.html">Caballero</a></li>
-            <li><a href="calzado-nino.html">Niñ@</a></li>
+            <li><a href="calzado-senora.html" onclick="agregarAlCarrito('Calzado - Señora')">Señora</a></li>
+            <li><a href="calzado-caballero.html" onclick="agregarAlCarrito('Calzado - Caballero')">Caballero</a></li>
+            <li><a href="calzado-nino.html" onclick="agregarAlCarrito('Calzado - Niñ@')">Niñ@</a></li>
           </ul>
         </div>
       </div>
@@ -282,9 +281,9 @@
         <div class="categorias" id="categorias-ropa-interior">
           <h3>Elige una categoría:</h3>
           <ul>
-            <li><a href="ropa-interior-senora.html">Señora</a></li>
-            <li><a href="ropa-interior-caballero.html">Caballero</a></li>
-            <li><a href="ropa-interior-nino.html">Niñ@</a></li>
+            <li><a href="ropa-interior-senora.html" onclick="agregarAlCarrito('Ropa interior - Señora')">Señora</a></li>
+            <li><a href="ropa-interior-caballero.html" onclick="agregarAlCarrito('Ropa interior - Caballero')">Caballero</a></li>
+            <li><a href="ropa-interior-nino.html" onclick="agregarAlCarrito('Ropa interior - Niñ@')">Niñ@</a></li>
           </ul>
         </div>
       </div>
@@ -324,43 +323,23 @@
         carritoContenido.style.display = 'none';
       } else {
         carritoContenido.style.display = 'block';
-        mostrarCarrito();
       }
     }
 
     // Función para agregar productos al carrito
     function agregarAlCarrito(producto) {
       carrito.push(producto);
-      actualizarCarrito();
-    }
-
-    // Actualizar el carrito
-    function actualizarCarrito() {
-      const carritoBtn = document.querySelector('.carrito-btn');
-      carritoBtn.textContent = `Carrito (${carrito.length})`;
+      document.querySelector('.carrito-btn').textContent = `Carrito (${carrito.length})`;
 
       const carritoContenido = document.getElementById('carrito-contenido');
-      if (carrito.length === 0) {
-        carritoContenido.innerHTML = "<p>No hay productos en el carrito</p>";
-      } else {
-        carritoContenido.innerHTML = carrito.map(producto => `<p>${producto}</p>`).join('');
-      }
+      carritoContenido.innerHTML = `<p>Productos en el carrito:</p><ul>${carrito.map(item => `<li>${item}</li>`).join('')}</ul>`;
     }
 
-    // Función para alternar la visibilidad de las categorías
+    // Función para mostrar categorías
     function toggleCategorias(categoria) {
       const categorias = document.querySelectorAll('.categorias');
-      const categoriaElemento = document.getElementById(`categorias-${categoria}`);
-
-      // Ocultar todas las categorías primero
       categorias.forEach(c => c.style.display = 'none');
-
-      // Mostrar u ocultar la categoría seleccionada
-      if (categoriaElemento.style.display === 'block') {
-        categoriaElemento.style.display = 'none';
-      } else {
-        categoriaElemento.style.display = 'block';
-      }
+      document.getElementById(`categorias-${categoria}`).style.display = 'block';
     }
   </script>
 </body>
