@@ -9,7 +9,7 @@
       font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
-      background-color: #FFFFFF;
+      background-color: #F3EDF1; /* Rosa claro como fondo principal */
       color: #2D1D2B;
     }
 
@@ -55,30 +55,27 @@
     }
 
     .banner {
-      background-color: #F3EDF1;
+      background: linear-gradient(to bottom, #FFFFFF, #F3EDF1); /* De blanco a rosa claro */
       padding: 100px 20px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    .banner img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* Línea morada sin fondo blanco */
-    .linea-morada {
-      height: 2px;
-      background-color: #5A3D57;
-      width: 80%;
-      margin: 20px auto;
+    .banner h1 {
+      font-size: 2.8em;
+      margin: 0;
+      color: #5A3D57;
     }
 
     .productos-destacados {
       padding: 50px 20px;
       text-align: center;
-      background-color: #F3EDF1;
+    }
+
+    .productos-destacados h2 {
+      font-size: 2.2em;
+      margin-bottom: 40px;
     }
 
     .productos {
@@ -86,6 +83,8 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 30px;
+      position: relative;
+      z-index: 2;
     }
 
     .producto {
@@ -101,6 +100,12 @@
       transform: translateY(-5px);
     }
 
+    .producto img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
     .producto button {
       background-color: #5A3D57;
       color: white;
@@ -114,33 +119,6 @@
 
     .producto button:hover {
       background-color: #402A3C;
-    }
-
-    .categorias {
-      display: none;
-      margin-top: 30px;
-      background-color: #F3EDF1;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(90, 61, 87, 0.1);
-    }
-
-    .categorias ul {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-    }
-
-    .categorias ul li {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-
-    .linea-separadora {
-      height: 2px;
-      background-color: #5A3D57;
-      width: 80%;
-      margin: 50px auto;
     }
 
     .sobre-nosotras, .contacto {
@@ -163,6 +141,25 @@
       color: white;
       font-size: 0.95em;
     }
+
+    /* Fondo decorativo en Productos Destacados */
+    .fondo-logo {
+      background-image: url('logo-fondo.png');
+      background-repeat: no-repeat;
+      background-position: center 80px;
+      background-size: 300px;
+      background-attachment: scroll;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Línea morada */
+    .linea-morada {
+      width: 100%;
+      height: 2px;
+      background-color: #5A3D57;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
@@ -182,62 +179,61 @@
   </header>
 
   <!-- Banner -->
-  <section class="banner" id="home">
-    <!-- Imagen del banner (en lugar de "¡Verano SS 25!") -->
-    <img src="imagen-banner.jpg" alt="Verano SS 25">
+  <section class="banner">
+    <h1>¡Verano SS 25!</h1>
   </section>
 
-  <!-- Línea morada sin fondo blanco -->
+  <!-- Línea morada -->
   <div class="linea-morada"></div>
 
-  <!-- Productos destacados -->
-  <section class="productos-destacados" id="shop">
+  <!-- Productos destacados con fondo de logo -->
+  <section class="productos-destacados fondo-logo" id="shop">
     <h2>¡Verano SS 25!</h2>
     <div class="productos">
       <div class="producto">
+        <img src="producto1.jpg" alt="Producto 1">
         <p>Ropa</p>
         <p>$20.00</p>
-        <button onclick="toggleCategorias('ropa')">Elegir</button>
-        <div class="categorias" id="categorias-ropa">
-          <h3>Elige una categoría:</h3>
+        <button onclick="toggleRopa()">Elegir</button>
+        <div id="ropa" style="display:none;">
           <ul>
-            <li><a href="#senora">Señora</a></li>
-            <li><a href="#caballero">Caballero</a></li>
-            <li><a href="#nino">Niñ@</a></li>
+            <li>Señora</li>
+            <li>Caballero</li>
+            <li>Niñ@</li>
           </ul>
         </div>
       </div>
       <div class="producto">
+        <img src="producto2.jpg" alt="Producto 2">
         <p>Calzado</p>
         <p>$30.00</p>
-        <button onclick="toggleCategorias('calzado')">Elegir</button>
-        <div class="categorias" id="categorias-calzado">
-          <h3>Elige una categoría:</h3>
+        <button onclick="toggleCalzado()">Elegir</button>
+        <div id="calzado" style="display:none;">
           <ul>
-            <li><a href="#senora">Señora</a></li>
-            <li><a href="#caballero">Caballero</a></li>
-            <li><a href="#nino">Niñ@</a></li>
+            <li>Señora</li>
+            <li>Caballero</li>
+            <li>Niñ@</li>
           </ul>
         </div>
       </div>
       <div class="producto">
+        <img src="producto3.jpg" alt="Producto 3">
         <p>Ropa interior</p>
         <p>$25.00</p>
-        <button onclick="toggleCategorias('ropa-interior')">Elegir</button>
-        <div class="categorias" id="categorias-ropa-interior">
-          <h3>Elige una categoría:</h3>
+        <button onclick="toggleRopaInterior()">Elegir</button>
+        <div id="ropaInterior" style="display:none;">
           <ul>
-            <li><a href="#senora">Señora</a></li>
-            <li><a href="#caballero">Caballero</a></li>
-            <li><a href="#nino">Niñ@</a></li>
+            <li>Señora</li>
+            <li>Caballero</li>
+            <li>Niñ@</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Línea separadora entre productos y "Sobre nosotras" -->
-  <div class="linea-separadora"></div>
+  <!-- Línea morada -->
+  <div class="linea-morada"></div>
 
   <!-- Sobre nosotras -->
   <section class="sobre-nosotras" id="about">
@@ -260,18 +256,20 @@
   </footer>
 
   <script>
-    function toggleCategorias(categoria) {
-      const categorias = document.querySelectorAll('.categorias');
-      const categoriaElemento = document.getElementById(`categorias-${categoria}`);
+    // Función para mostrar/ocultar las opciones de "Elegir"
+    function toggleRopa() {
+      var ropa = document.getElementById('ropa');
+      ropa.style.display = ropa.style.display === 'none' ? 'block' : 'none';
+    }
 
-      // Toggle la visibilidad de la categoría
-      if (categoriaElemento.style.display === 'block') {
-        categoriaElemento.style.display = 'none';
-      } else {
-        // Ocultar todas las demás categorías
-        categorias.forEach(c => c.style.display = 'none');
-        categoriaElemento.style.display = 'block';
-      }
+    function toggleCalzado() {
+      var calzado = document.getElementById('calzado');
+      calzado.style.display = calzado.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function toggleRopaInterior() {
+      var ropaInterior = document.getElementById('ropaInterior');
+      ropaInterior.style.display = ropaInterior.style.display === 'none' ? 'block' : 'none';
     }
   </script>
 </body>
