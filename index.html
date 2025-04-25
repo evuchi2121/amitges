@@ -56,24 +56,28 @@
 
     .banner {
       background-color: #F3EDF1;
-      padding: 60px 20px;
+      padding: 100px 20px 40px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .banner h1 {
-      font-size: 2.8em;
-      margin: 0;
-      color: #5A3D57;
+    .banner img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .linea-morada {
+      height: 2px;
+      background-color: #5A3D57;
+      width: 80%;
+      margin: 20px auto;
     }
 
     .productos-destacados {
       padding: 50px 20px;
       text-align: center;
-    }
-
-    .productos-destacados h2 {
-      font-size: 2.2em;
-      margin-bottom: 40px;
+      background-color: #F3EDF1;
     }
 
     .productos {
@@ -81,8 +85,6 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 30px;
-      position: relative;
-      z-index: 2;
     }
 
     .producto {
@@ -96,12 +98,6 @@
 
     .producto:hover {
       transform: translateY(-5px);
-    }
-
-    .producto img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
     }
 
     .producto button {
@@ -119,8 +115,34 @@
       background-color: #402A3C;
     }
 
-    .sobre-nosotras,
-    .contacto {
+    .categorias {
+      display: none;
+      margin-top: 30px;
+      background-color: #F3EDF1;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(90, 61, 87, 0.1);
+    }
+
+    .categorias ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .categorias ul li {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .linea-separadora {
+      height: 2px;
+      background-color: #5A3D57;
+      width: 80%;
+      margin: 50px auto;
+    }
+
+    .sobre-nosotras, .contacto {
       background-color: #F3EDF1;
       padding: 50px 20px;
       text-align: center;
@@ -141,55 +163,9 @@
       font-size: 0.95em;
     }
 
-    /* Fondo rosa claro en "Sobre Nosotras" */
-    .fondo-rosa {
-      background-color: #F3EDF1;
-      padding-bottom: 50px;
-    }
-
-    /* Fondo decorativo en Productos Destacados */
-    .fondo-logo {
-      background-image: url('logo-fondo.png');
-      background-repeat: no-repeat;
-      background-position: center 80px;
-      background-size: 300px;
-      background-attachment: scroll;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Líneas de separación */
-    .linea {
-      height: 2px;
-      background-color: #5A3D57;
-      margin: 40px 0;
-    }
-
-    /* Cambio en botones y enlaces */
-    .producto button {
-      background-color: #5A3D57;
-      color: white;
-    }
-
-    .producto button:hover {
-      background-color: #402A3C;
-    }
-
-    /* Ajustes de los enlaces en cada categoría */
-    .categorias a {
-      text-decoration: none;
-      color: #5A3D57;
-      display: block;
-      padding: 10px;
-      background-color: #F3EDF1;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 2px solid #5A3D57;
-    }
-
-    .categorias a:hover {
-      background-color: #5A3D57;
-      color: white;
+    /* Fondo blanco desde ¡Verano SS 25! hasta Sobre nosotras */
+    .fondo-blanco {
+      background-color: #FFFFFF;
     }
   </style>
 </head>
@@ -210,55 +186,68 @@
   </header>
 
   <!-- Banner -->
-  <section class="banner">
-    <h1>¡Verano SS 25!</h1>
+  <section class="banner" id="home">
+    <!-- Imagen del banner (en lugar de "¡Verano SS 25!") -->
+    <img src="imagen-banner.jpg" alt="Verano SS 25">
   </section>
 
-  <!-- Productos destacados con fondo de logo -->
-  <section class="productos-destacados fondo-logo" id="shop">
+  <!-- Línea morada sin fondo blanco -->
+  <div class="linea-morada"></div>
+
+  <!-- Productos destacados con fondo blanco -->
+  <section class="productos-destacados fondo-blanco" id="shop">
     <h2>¡Verano SS 25!</h2>
     <div class="productos">
       <div class="producto">
         <p>Ropa</p>
-        <button onclick="toggleDropdown('ropa')">Elegir</button>
-        <div id="ropa" class="categorias" style="display:none;">
-          <a href="ropa-senora.html">Señora</a>
-          <a href="ropa-caballero.html">Caballero</a>
-          <a href="ropa-nino.html">Niñ@</a>
+        <button onclick="toggleCategorias('ropa')">Elegir</button>
+        <div class="categorias" id="categorias-ropa">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="ropa-senora.html">Señora</a></li>
+            <li><a href="ropa-caballero.html">Caballero</a></li>
+            <li><a href="ropa-nino.html">Niñ@</a></li>
+          </ul>
         </div>
       </div>
       <div class="producto">
         <p>Calzado</p>
-        <button onclick="toggleDropdown('calzado')">Elegir</button>
-        <div id="calzado" class="categorias" style="display:none;">
-          <a href="calzado-senora.html">Señora</a>
-          <a href="calzado-caballero.html">Caballero</a>
-          <a href="calzado-nino.html">Niñ@</a>
+        <button onclick="toggleCategorias('calzado')">Elegir</button>
+        <div class="categorias" id="categorias-calzado">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="calzado-senora.html">Señora</a></li>
+            <li><a href="calzado-caballero.html">Caballero</a></li>
+            <li><a href="calzado-nino.html">Niñ@</a></li>
+          </ul>
         </div>
       </div>
       <div class="producto">
-        <p>Ropa Interior</p>
-        <button onclick="toggleDropdown('ropaInterior')">Elegir</button>
-        <div id="ropaInterior" class="categorias" style="display:none;">
-          <a href="ropa-interior-senora.html">Señora</a>
-          <a href="ropa-interior-caballero.html">Caballero</a>
-          <a href="ropa-interior-nino.html">Niñ@</a>
+        <p>Ropa interior</p>
+        <button onclick="toggleCategorias('ropa-interior')">Elegir</button>
+        <div class="categorias" id="categorias-ropa-interior">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="ropa-interior-senora.html">Señora</a></li>
+            <li><a href="ropa-interior-caballero.html">Caballero</a></li>
+            <li><a href="ropa-interior-nino.html">Niñ@</a></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Separación entre productos y "Sobre Nosotras" -->
-  <div class="linea"></div>
+  <!-- Línea separadora entre productos y "Sobre nosotras" -->
+  <div class="linea-separadora"></div>
 
   <!-- Sobre nosotras -->
-  <section class="sobre-nosotras fondo-rosa" id="about">
+  <section class="sobre-nosotras fondo-blanco" id="about">
     <h2>Sobre nosotras</h2>
     <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜</p>
   </section>
 
   <!-- Contacto -->
-  <section class="contacto" id="contact">
+  <section class="contacto fondo-blanco" id="contact">
     <h2>Contacto</h2>
     <p>Teléfono: 640 897645</p>
     <p>Email: <a href="mailto:amitgesbyreyesyyoli@gmail.com">amitgesbyreyesyyoli@gmail.com</a></p>
@@ -272,12 +261,17 @@
   </footer>
 
   <script>
-    function toggleDropdown(id) {
-      var dropdown = document.getElementById(id);
-      if (dropdown.style.display === "none" || dropdown.style.display === "") {
-        dropdown.style.display = "block";
+    function toggleCategorias(categoria) {
+      const categorias = document.querySelectorAll('.categorias');
+      const categoriaElemento = document.getElementById(`categorias-${categoria}`);
+
+      // Toggle la visibilidad de la categoría
+      if (categoriaElemento.style.display === 'block') {
+        categoriaElemento.style.display = 'none';
       } else {
-        dropdown.style.display = "none";
+        // Ocultar todas las demás categorías
+        categorias.forEach(c => c.style.display = 'none');
+        categoriaElemento.style.display = 'block';
       }
     }
   </script>
