@@ -260,8 +260,6 @@
             <li><a href="ropa-senora.html" onclick="agregarAlCarrito('Ropa - Señora')">Señora</a></li>
             <li><a href="ropa-caballero.html" onclick="agregarAlCarrito('Ropa - Caballero')">Caballero</a></li>
             <li><a href="ropa-nino.html" onclick="agregarAlCarrito('Ropa - Niñ@')">Niñ@</a></li>
-            <!-- Sudadera de Harper dentro de Caballero -->
-            <li><a href="#" onclick="agregarAlCarrito('Sudadera de Harper - Caballero 45€')">Sudadera de Harper - 45€</a></li>
           </ul>
         </div>
       </div>
@@ -318,26 +316,18 @@
   <script>
     let carrito = [];
 
-    // Función para mostrar/ocultar el carrito
     function toggleCarrito() {
       const carritoContenido = document.getElementById('carrito-contenido');
-      if (carritoContenido.style.display === 'block') {
-        carritoContenido.style.display = 'none';
-      } else {
-        carritoContenido.style.display = 'block';
-      }
+      carritoContenido.style.display = carritoContenido.style.display === 'block' ? 'none' : 'block';
     }
 
-    // Función para agregar productos al carrito
     function agregarAlCarrito(producto) {
       carrito.push(producto);
       document.querySelector('.carrito-btn').textContent = `Carrito (${carrito.length})`;
-
       const carritoContenido = document.getElementById('carrito-contenido');
       carritoContenido.innerHTML = `<p>Productos en el carrito:</p><ul>${carrito.map(item => `<li>${item}</li>`).join('')}</ul>`;
     }
 
-    // Función para mostrar categorías
     function toggleCategorias(categoria) {
       const categorias = document.querySelectorAll('.categorias');
       categorias.forEach(c => c.style.display = 'none');
