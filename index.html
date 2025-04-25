@@ -35,9 +35,22 @@
       align-items: center;
     }
 
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .logo img {
       display: block;
-      max-height: 50px; /* Logo más pequeño */
+      max-height: 50px;
+    }
+
+    .nombre-logo {
+      font-size: 1.1em;
+      color: white;
+      font-weight: bold;
+      font-family: 'Georgia', serif;
     }
 
     header nav ul {
@@ -143,7 +156,7 @@
     }
 
     .sobre-nosotras, .contacto {
-      background-color: #F3EDF1; /* Cambié el fondo de "Sobre Nosotras" al rosa claro */
+      background-color: #F3EDF1;
       padding: 50px 20px;
       text-align: center;
     }
@@ -163,7 +176,6 @@
       font-size: 0.95em;
     }
 
-    /* Fondo blanco desde ¡Verano SS 25! hasta Sobre nosotras */
     .fondo-blanco {
       background-color: #FFFFFF;
     }
@@ -174,6 +186,7 @@
   <header>
     <div class="logo">
       <img src="logo-amitges.png" alt="Amitges by Reyes & Yoli">
+      <span class="nombre-logo">Amitges by Reyes y Yoli</span>
     </div>
     <nav>
       <ul>
@@ -187,14 +200,13 @@
 
   <!-- Banner -->
   <section class="banner" id="home">
-    <!-- Imagen del banner (en lugar de "¡Verano SS 25!") -->
     <img src="imagen-banner.jpg" alt="Verano SS 25">
   </section>
 
-  <!-- Línea morada sin fondo blanco -->
+  <!-- Línea morada -->
   <div class="linea-morada"></div>
 
-  <!-- Productos destacados con fondo blanco -->
+  <!-- Productos destacados -->
   <section class="productos-destacados fondo-blanco" id="shop">
     <h2>¡Verano SS 25!</h2>
     <div class="productos">
@@ -237,7 +249,7 @@
     </div>
   </section>
 
-  <!-- Línea separadora entre productos y "Sobre nosotras" -->
+  <!-- Línea separadora -->
   <div class="linea-separadora"></div>
 
   <!-- Sobre nosotras -->
@@ -265,11 +277,9 @@
       const categorias = document.querySelectorAll('.categorias');
       const categoriaElemento = document.getElementById(`categorias-${categoria}`);
 
-      // Toggle la visibilidad de la categoría
       if (categoriaElemento.style.display === 'block') {
         categoriaElemento.style.display = 'none';
       } else {
-        // Ocultar todas las demás categorías
         categorias.forEach(c => c.style.display = 'none');
         categoriaElemento.style.display = 'block';
       }
