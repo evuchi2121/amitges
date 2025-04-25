@@ -55,23 +55,18 @@
     }
 
     .banner {
-      background: url('banner-image.jpg') no-repeat center center; /* Imagen de fondo del banner */
-      background-size: cover;
+      background: url('logo-amitges.png') no-repeat center center; /* Aquí va la imagen del logo */
+      background-size: contain; /* La imagen se ajusta al tamaño */
       padding: 100px 20px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    .banner h1 {
-      font-size: 2.8em;
-      margin: 0;
-      color: #FFFFFF;
-    }
-
     .productos-destacados {
       padding: 50px 20px;
       text-align: center;
+      background-color: #FFFFFF; /* Fondo blanco para los productos */
     }
 
     .productos-destacados h2 {
@@ -90,7 +85,7 @@
 
     .producto {
       width: 260px;
-      background-color: #F3EDF1;
+      background-color: #FFFFFF; /* Fondo blanco */
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 4px 8px rgba(90, 61, 87, 0.1);
@@ -178,7 +173,7 @@
 
   <!-- Banner -->
   <section class="banner">
-    <h1>¡Verano SS 25!</h1>
+    <!-- El logo ya está en el fondo, por eso no es necesario el texto "¡Verano SS 25!" -->
   </section>
 
   <!-- Línea morada -->
@@ -187,48 +182,13 @@
   <!-- Fondo blanco entre las líneas -->
   <div class="linea-fondo-blanco"></div>
 
-  <!-- Productos destacados con fondo de logo -->
-  <section class="productos-destacados fondo-logo" id="shop">
+  <!-- Productos destacados con fondo blanco -->
+  <section class="productos-destacados" id="shop">
     <h2>¡Verano SS 25!</h2>
     <div class="productos">
+      <!-- Aquí he eliminado los productos anteriores -->
       <div class="producto">
-        <img src="producto1.jpg" alt="Producto 1">
-        <p>Ropa</p>
-        <p>$20.00</p>
-        <button onclick="toggleRopa()">Elegir</button>
-        <div id="ropa" style="display:none;">
-          <ul>
-            <li>Señora</li>
-            <li>Caballero</li>
-            <li>Niñ@</li>
-          </ul>
-        </div>
-      </div>
-      <div class="producto">
-        <img src="producto2.jpg" alt="Producto 2">
-        <p>Calzado</p>
-        <p>$30.00</p>
-        <button onclick="toggleCalzado()">Elegir</button>
-        <div id="calzado" style="display:none;">
-          <ul>
-            <li>Señora</li>
-            <li>Caballero</li>
-            <li>Niñ@</li>
-          </ul>
-        </div>
-      </div>
-      <div class="producto">
-        <img src="producto3.jpg" alt="Producto 3">
-        <p>Ropa interior</p>
-        <p>$25.00</p>
-        <button onclick="toggleRopaInterior()">Elegir</button>
-        <div id="ropaInterior" style="display:none;">
-          <ul>
-            <li>Señora</li>
-            <li>Caballero</li>
-            <li>Niñ@</li>
-          </ul>
-        </div>
+        <p>¡Próximamente más productos!</p>
       </div>
     </div>
   </section>
