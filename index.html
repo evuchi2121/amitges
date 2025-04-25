@@ -140,6 +140,26 @@
       background-color: #402A3C;
     }
 
+    .categorias {
+      display: none;
+      margin-top: 30px;
+      background-color: #F3EDF1;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(90, 61, 87, 0.1);
+    }
+
+    .categorias ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .categorias ul li {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
     .sobre-nosotras, .contacto {
       background-color: #F3EDF1;
       padding: 50px 20px;
@@ -180,7 +200,6 @@
 
   <!-- Banner -->
   <section class="banner" id="home">
-    <h1>¡Verano SS 25!</h1>
     <div class="linea-morada"></div>
   </section>
 
@@ -192,7 +211,15 @@
         <img src="ropa.jpg" alt="Ropa">
         <p>Ropa</p>
         <p>$20.00</p>
-        <button>Elegir</button>
+        <button onclick="mostrarCategorias()">Elegir</button>
+        <div class="categorias" id="categorias-ropa">
+          <h3>Elige una categoría:</h3>
+          <ul>
+            <li><a href="#mujer">Mujer</a></li>
+            <li><a href="#caballero">Caballero</a></li>
+            <li><a href="#nino">Niño</a></li>
+          </ul>
+        </div>
       </div>
       <div class="producto">
         <img src="zapatos.jpg" alt="Zapatos">
@@ -228,5 +255,11 @@
   <footer>
     <p>&copy; 2025 Amitges by Reyes & Yoli</p>
   </footer>
+
+  <script>
+    function mostrarCategorias() {
+      document.getElementById("categorias-ropa").style.display = "block";
+    }
+  </script>
 </body>
 </html>
