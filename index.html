@@ -55,7 +55,7 @@
     }
 
     .banner {
-      background-color: #F3EDF1;  /* Rosa débil */
+      background-color: #F3EDF1; /* Rosa débil */
       padding: 60px 20px;
       text-align: center;
     }
@@ -117,9 +117,9 @@
       background-color: #402A3C;
     }
 
-    /* Aplicando el fondo rosa débil en Sobre Nosotras */
+    /* Fondo rosa débil en Sobre Nosotras */
     .sobre-nosotras {
-      background-color: #F3EDF1;  /* Rosa débil */
+      background-color: #F3EDF1; /* Rosa débil */
       padding: 50px 20px;
       text-align: center;
     }
@@ -137,6 +137,30 @@
       color: white;
       font-size: 0.95em;
     }
+
+    /* Línea entre secciones */
+    .linea {
+      height: 2px;
+      background-color: #5A3D57;
+      margin: 40px 0;
+    }
+
+    /* Estilo para los botones "Elegir" */
+    .producto button {
+      background-color: #5A3D57;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .producto button:hover {
+      background-color: #402A3C;
+    }
+
   </style>
 </head>
 <body>
@@ -166,18 +190,36 @@
     <div class="productos">
       <div class="producto">
         <p>Ropa</p>
-        <button>Elegir</button>
+        <button onclick="toggleCategory('ropa')">Elegir</button>
+        <div id="ropa" style="display:none;">
+          <p><a href="ropa-senora.html">Señora</a></p>
+          <p><a href="ropa-caballero.html">Caballero</a></p>
+          <p><a href="ropa-nino.html">Niñ@</a></p>
+        </div>
       </div>
       <div class="producto">
         <p>Calzado</p>
-        <button>Elegir</button>
+        <button onclick="toggleCategory('calzado')">Elegir</button>
+        <div id="calzado" style="display:none;">
+          <p><a href="calzado-senora.html">Señora</a></p>
+          <p><a href="calzado-caballero.html">Caballero</a></p>
+          <p><a href="calzado-nino.html">Niñ@</a></p>
+        </div>
       </div>
       <div class="producto">
         <p>Ropa interior</p>
-        <button>Elegir</button>
+        <button onclick="toggleCategory('ropaInterior')">Elegir</button>
+        <div id="ropaInterior" style="display:none;">
+          <p><a href="ropaInterior-senora.html">Señora</a></p>
+          <p><a href="ropaInterior-caballero.html">Caballero</a></p>
+          <p><a href="ropaInterior-nino.html">Niñ@</a></p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Línea entre secciones -->
+  <div class="linea"></div>
 
   <!-- Sobre nosotras -->
   <section class="sobre-nosotras" id="about">
@@ -189,5 +231,16 @@
   <footer>
     <p>&copy; 2025 Amitges by Reyes & Yoli</p>
   </footer>
+
+  <script>
+    function toggleCategory(category) {
+      var categoryDiv = document.getElementById(category);
+      if (categoryDiv.style.display === "none") {
+        categoryDiv.style.display = "block";
+      } else {
+        categoryDiv.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
