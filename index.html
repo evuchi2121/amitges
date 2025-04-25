@@ -179,6 +179,40 @@
     .fondo-blanco {
       background-color: #FFFFFF;
     }
+
+    /* Carrito */
+    .carrito {
+      position: relative;
+    }
+
+    .carrito-btn {
+      background-color: #5A3D57;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .carrito-btn:hover {
+      background-color: #402A3C;
+    }
+
+    .carrito-contenido {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      display: none;
+    }
+
+    .carrito-contenido p {
+      margin: 0;
+      font-size: 1.1em;
+    }
+
   </style>
 </head>
 <body>
@@ -196,6 +230,14 @@
         <li><a href="#contact">Contacto</a></li>
       </ul>
     </nav>
+
+    <!-- Carrito -->
+    <div class="carrito">
+      <button class="carrito-btn" onclick="toggleCarrito()">Carrito (0)</button>
+      <div class="carrito-contenido" id="carrito-contenido">
+        <p>No hay productos en el carrito</p>
+      </div>
+    </div>
   </header>
 
   <!-- Banner -->
@@ -273,15 +315,42 @@
   </footer>
 
   <script>
-    function toggleCategorias(categoria) {
-      const categorias = document.querySelectorAll('.categorias');
-      const categoriaElemento = document.getElementById(`categorias-${categoria}`);
+    let carrito = [];
 
-      if (categoriaElemento.style.display === 'block') {
-        categoriaElemento.style.display = 'none';
+    // Función para mostrar/ocultar el carrito
+    function toggleCarrito() {
+      const carritoContenido = document.getElementById('carrito-contenido');
+      if (carritoContenido.style.display === 'block') {
+        carritoContenido.style.display = 'none';
       } else {
-        categorias.forEach(c => c.style.display = 'none');
-        categoriaElemento.style.display = 'block';
+        carritoContenido.style.display = 'block';
+        mostrarCarrito();
+      }
+    }
+
+    // Función para agregar productos al carrito
+    function agregarAlCarrito(producto) {
+      carrito.push(producto);
+      actualizarCarrito();
+    }
+
+    // Actualizar el carrito
+    function actualizarCarrito() {
+      const carritoBtn = document.querySelector('.carrito-btn');
+      carritoBtn.textContent = `Carrito (${carrito.length})`;
+
+      const carritoContenido = document.getElementById('carrito-contenido');
+      if (carrito.length === 0) {
+        carritoContenido.innerHTML = "<p>No hay productos en el carrito</p>";
+      } else {
+        carritoContenido.innerHTML = carrito.map(producto => `<p>${producto}</p>`).join('');
+      }
+    }
+
+    // Mostrar carrito cuando se abre
+    function mostrarCarrito() {
+      if (carrito.length === 0) {
+        document.getElementById('carrito-contenido').innerHTML = "<p>No hay productos en el carrito</p>";
       }
     }
   </script>
