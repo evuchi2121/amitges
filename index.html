@@ -55,7 +55,8 @@
     }
 
     .banner {
-      background: linear-gradient(to bottom, #FFFFFF, #F3EDF1); /* De blanco a rosa claro */
+      background: url('banner-image.jpg') no-repeat center center; /* Imagen de fondo del banner */
+      background-size: cover;
       padding: 100px 20px 40px;
       text-align: center;
       position: relative;
@@ -65,7 +66,7 @@
     .banner h1 {
       font-size: 2.8em;
       margin: 0;
-      color: #5A3D57;
+      color: #FFFFFF;
     }
 
     .productos-destacados {
@@ -142,24 +143,21 @@
       font-size: 0.95em;
     }
 
-    /* Fondo decorativo en Productos Destacados */
-    .fondo-logo {
-      background-image: url('logo-fondo.png');
-      background-repeat: no-repeat;
-      background-position: center 80px;
-      background-size: 300px;
-      background-attachment: scroll;
-      position: relative;
-      z-index: 1;
-    }
-
     /* Línea morada */
     .linea-morada {
-      width: 100%;
+      width: 60%; /* Cambié el tamaño para que no llegue hasta el final */
       height: 2px;
       background-color: #5A3D57;
-      margin-top: 30px;
+      margin: 30px auto;
     }
+
+    /* Fondo blanco entre las dos líneas */
+    .linea-fondo-blanco {
+      background-color: #FFFFFF;
+      height: 20px;
+      width: 100%;
+    }
+
   </style>
 </head>
 <body>
@@ -185,6 +183,9 @@
 
   <!-- Línea morada -->
   <div class="linea-morada"></div>
+
+  <!-- Fondo blanco entre las líneas -->
+  <div class="linea-fondo-blanco"></div>
 
   <!-- Productos destacados con fondo de logo -->
   <section class="productos-destacados fondo-logo" id="shop">
