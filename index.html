@@ -1,212 +1,204 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amitges by Reyes & Yoli</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amitges by Reyes & Yoli</title>
+  <style>
+    /* Estilo general */
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: #2D1D2B;
+    }
 
-        h1, h2 {
-            color: #6A2C97; /* Color morado */
-        }
+    h1, h2 {
+      color: #5A3D57;
+    }
 
-        a {
-            text-decoration: none;
-            color: #6A2C97;
-        }
+    a {
+      text-decoration: none;
+      color: #5A3D57;
+    }
 
-        a:hover {
-            color: #540d6e;
-        }
+    a:hover {
+      color: #402A3C;
+    }
 
-        /* Encabezado */
-        header {
-            background-color: #6A2C97; /* Morado */
-            padding: 20px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    header {
+      background-color: #5A3D57;
+      padding: 20px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        header nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 25px;
+    }
 
-        header nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
+    header nav ul li a {
+      color: white;
+      font-weight: 500;
+      font-size: 1em;
+    }
 
-        header nav ul li a {
-            color: white;
-            font-weight: bold;
-        }
+    .banner {
+      background-color: #F3EDF1;
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-        /* Banner */
-        .banner {
-            background-color: #D8A7E6; /* Color más claro de morado */
-            padding: 50px 0;
-            text-align: center;
-        }
+    .banner h1 {
+      font-size: 2.8em;
+      margin: 0;
+      color: #5A3D57;
+    }
 
-        .banner h1 {
-            font-size: 2.5em;
-            color: #6A2C97;
-        }
+    .productos-destacados {
+      padding: 50px 20px;
+      text-align: center;
+    }
 
-        /* Productos destacados */
-        .productos-destacados {
-            padding: 40px 20px;
-            text-align: center;
-        }
+    .productos-destacados h2 {
+      font-size: 2.2em;
+      margin-bottom: 40px;
+    }
 
-        .productos-destacados h2 {
-            font-size: 2em;
-        }
+    .productos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
 
-        .productos {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
+    .producto {
+      width: 260px;
+      background-color: #F3EDF1;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(90, 61, 87, 0.1);
+      transition: transform 0.3s ease;
+    }
 
-        .producto {
-            width: 250px;
-            margin: 20px;
-            background-color: #F5E5F8;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-        }
+    .producto:hover {
+      transform: translateY(-5px);
+    }
 
-        .producto img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
+    .producto img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
 
-        .producto button {
-            background-color: #6A2C97;
-            color: white;
-            border: none;
-            padding: 10px;
-            margin-top: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+    .producto button {
+      background-color: #5A3D57;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+    }
 
-        .producto button:hover {
-            background-color: #540d6e;
-        }
+    .producto button:hover {
+      background-color: #402A3C;
+    }
 
-        /* Sección sobre nosotras */
-        .sobre-nosotras {
-            background-color: #F5E5F8;
-            padding: 40px 20px;
-            text-align: center;
-        }
+    .sobre-nosotras, .contacto {
+      background-color: #F3EDF1;
+      padding: 50px 20px;
+      text-align: center;
+    }
 
-        .sobre-nosotras p {
-            font-size: 1.2em;
-        }
+    .sobre-nosotras p,
+    .contacto p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: auto;
+    }
 
-        /* Sección de contacto */
-        .contacto {
-            padding: 40px 20px;
-            text-align: center;
-            background-color: #D8A7E6;
-        }
-
-        .contacto p {
-            font-size: 1.2em;
-        }
-
-        /* Pie de página */
-        footer {
-            background-color: #6A2C97;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-    </style>
+    footer {
+      background-color: #5A3D57;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 0.95em;
+    }
+  </style>
 </head>
 <body>
-    <!-- Encabezado -->
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Amitges by Reyes & Yoli">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#shop">Tienda</a></li>
-                <li><a href="#about">Sobre nosotras</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Encabezado -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Amitges by Reyes & Yoli" height="50">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#shop">Tienda</a></li>
+        <li><a href="#about">Sobre nosotras</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Banner -->
-    <section class="banner">
-        <h1>¡Nuevas colecciones de primavera ya disponibles!</h1>
-    </section>
+  <!-- Banner -->
+  <section class="banner">
+    <h1>¡Nuevas colecciones de primavera ya disponibles!</h1>
+  </section>
 
-    <!-- Productos destacados -->
-    <section class="productos-destacados" id="shop">
-        <h2>Productos Destacados</h2>
-        <div class="productos">
-            <!-- Producto 1 -->
-            <div class="producto">
-                <img src="producto1.jpg" alt="Producto 1">
-                <p>Producto 1</p>
-                <p>$20.00</p>
-                <button>Añadir al carrito</button>
-            </div>
-            <!-- Producto 2 -->
-            <div class="producto">
-                <img src="producto2.jpg" alt="Producto 2">
-                <p>Producto 2</p>
-                <p>$30.00</p>
-                <button>Añadir al carrito</button>
-            </div>
-            <!-- Producto 3 -->
-            <div class="producto">
-                <img src="producto3.jpg" alt="Producto 3">
-                <p>Producto 3</p>
-                <p>$25.00</p>
-                <button>Añadir al carrito</button>
-            </div>
-        </div>
-    </section>
+  <!-- Productos destacados -->
+  <section class="productos-destacados" id="shop">
+    <h2>Productos Destacados</h2>
+    <div class="productos">
+      <div class="producto">
+        <img src="producto1.jpg" alt="Producto 1">
+        <p>Producto 1</p>
+        <p>$20.00</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="producto2.jpg" alt="Producto 2">
+        <p>Producto 2</p>
+        <p>$30.00</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <div class="producto">
+        <img src="producto3.jpg" alt="Producto 3">
+        <p>Producto 3</p>
+        <p>$25.00</p>
+        <button>Añadir al carrito</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Sobre nosotras -->
-    <section class="sobre-nosotras" id="about">
-        <h2>Sobre nosotras</h2>
-        <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜</p>
-    </section>
+  <!-- Sobre nosotras -->
+  <section class="sobre-nosotras" id="about">
+    <h2>Sobre nosotras</h2>
+    <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜</p>
+  </section>
 
-    <!-- Contacto -->
-    <section class="contacto" id="contact">
-        <h2>Contacto</h2>
-        <p>Teléfono: 640 897645</p>
-        <p>Email: <a href="mailto:amitgesbyreyesyyoli@gmail.com">amitgesbyreyesyyoli@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/amitgesbyreyesyyoli" target="_blank">@amitgesbyreyesyyoli</a></p>
-        <p>Dirección: Avenida Castellón, 30, Benicasim, Castellón</p>
-    </section>
+  <!-- Contacto -->
+  <section class="contacto" id="contact">
+    <h2>Contacto</h2>
+    <p>Teléfono: 640 897645</p>
+    <p>Email: <a href="mailto:amitgesbyreyesyyoli@gmail.com">amitgesbyreyesyyoli@gmail.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/amitgesbyreyesyyoli" target="_blank">@amitgesbyreyesyyoli</a></p>
+    <p>Dirección: Avenida Castellón, 30, Benicasim, Castellón</p>
+  </section>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2025 Amitges by Reyes & Yoli</p>
-    </footer>
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2025 Amitges by Reyes & Yoli</p>
+  </footer>
 </body>
 </html>
