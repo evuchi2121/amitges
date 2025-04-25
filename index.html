@@ -35,22 +35,20 @@
       align-items: center;
     }
 
-    .logo {
+    .logo-titulo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
     }
 
-    .logo img {
+    .logo-titulo img {
       display: block;
       max-height: 50px;
     }
 
-    .nombre-logo {
-      font-size: 1.1em;
-      color: white;
+    .logo-titulo span {
+      font-size: 1.2em;
       font-weight: bold;
-      font-family: 'Georgia', serif;
     }
 
     header nav ul {
@@ -184,9 +182,9 @@
 <body>
   <!-- Encabezado -->
   <header>
-    <div class="logo">
-      <img src="logo-amitges.png" alt="Amitges by Reyes & Yoli">
-      <span class="nombre-logo">Amitges by Reyes y Yoli</span>
+    <div class="logo-titulo">
+      <img src="logo-amitges.png" alt="Amitges logo">
+      <span>Amitges by Reyes y Yoli</span>
     </div>
     <nav>
       <ul>
@@ -203,16 +201,16 @@
     <img src="imagen-banner.jpg" alt="Verano SS 25">
   </section>
 
-  <!-- Línea morada -->
   <div class="linea-morada"></div>
 
-  <!-- Productos destacados -->
+  <!-- Productos -->
   <section class="productos-destacados fondo-blanco" id="shop">
     <h2>¡Verano SS 25!</h2>
     <div class="productos">
       <div class="producto">
         <p>Ropa</p>
         <button onclick="toggleCategorias('ropa')">Elegir</button>
+        <button onclick="addToCart('Ropa')">Añadir al carrito</button>
         <div class="categorias" id="categorias-ropa">
           <h3>Elige una categoría:</h3>
           <ul>
@@ -225,6 +223,7 @@
       <div class="producto">
         <p>Calzado</p>
         <button onclick="toggleCategorias('calzado')">Elegir</button>
+        <button onclick="addToCart('Calzado')">Añadir al carrito</button>
         <div class="categorias" id="categorias-calzado">
           <h3>Elige una categoría:</h3>
           <ul>
@@ -237,6 +236,7 @@
       <div class="producto">
         <p>Ropa interior</p>
         <button onclick="toggleCategorias('ropa-interior')">Elegir</button>
+        <button onclick="addToCart('Ropa interior')">Añadir al carrito</button>
         <div class="categorias" id="categorias-ropa-interior">
           <h3>Elige una categoría:</h3>
           <ul>
@@ -249,16 +249,13 @@
     </div>
   </section>
 
-  <!-- Línea separadora -->
   <div class="linea-separadora"></div>
 
-  <!-- Sobre nosotras -->
   <section class="sobre-nosotras fondo-blanco" id="about">
     <h2>Sobre nosotras</h2>
     <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜</p>
   </section>
 
-  <!-- Contacto -->
   <section class="contacto fondo-blanco" id="contact">
     <h2>Contacto</h2>
     <p>Teléfono: 640 897645</p>
@@ -267,7 +264,6 @@
     <p>Dirección: Avenida Castellón, 30, Benicasim, Castellón</p>
   </section>
 
-  <!-- Pie de página -->
   <footer>
     <p>&copy; 2025 Amitges by Reyes & Yoli</p>
   </footer>
@@ -276,13 +272,19 @@
     function toggleCategorias(categoria) {
       const categorias = document.querySelectorAll('.categorias');
       const categoriaElemento = document.getElementById(`categorias-${categoria}`);
-
       if (categoriaElemento.style.display === 'block') {
         categoriaElemento.style.display = 'none';
       } else {
         categorias.forEach(c => c.style.display = 'none');
         categoriaElemento.style.display = 'block';
       }
+    }
+
+    function addToCart(producto) {
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      carrito.push(producto);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      alert(`${producto} añadido al carrito 🛒`);
     }
   </script>
 </body>
