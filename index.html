@@ -56,14 +56,34 @@
 
     .banner {
       background-color: #F3EDF1;
-      padding: 60px 20px;
+      padding: 100px 20px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      background-image: url('logo-fondo.png'); /* Asegúrate de tener esta imagen */
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      opacity: 0.05;
+      transform: translate(-50%, -50%);
+      z-index: 1;
     }
 
     .banner h1 {
       font-size: 2.8em;
       margin: 0;
       color: #5A3D57;
+      position: relative;
+      z-index: 2;
     }
 
     .productos-destacados {
@@ -74,7 +94,12 @@
       overflow: hidden;
     }
 
-    /* Logo como fondo decorativo */
+    .productos-destacados h2,
+    .productos-destacados .productos {
+      position: relative;
+      z-index: 2;
+    }
+
     .productos-destacados::before {
       content: "";
       position: absolute;
@@ -82,19 +107,13 @@
       left: 50%;
       width: 400px;
       height: 400px;
-      background-image: url('logo-fondo.png'); /* Asegúrate de tener esta imagen en tu proyecto */
+      background-image: url('logo-fondo.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
       opacity: 0.05;
       transform: translate(-50%, -50%);
       z-index: 1;
-    }
-
-    .productos-destacados h2,
-    .productos-destacados .productos {
-      position: relative;
-      z-index: 2;
     }
 
     .productos {
@@ -176,9 +195,9 @@
     </nav>
   </header>
 
-  <!-- Banner -->
+  <!-- Banner con logo de fondo -->
   <section class="banner" id="home">
-    <h1>¡Nuevas colecciones de primavera ya disponibles!</h1>
+    <h1>Verano SS 25</h1>
   </section>
 
   <!-- Productos destacados -->
