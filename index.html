@@ -334,42 +334,52 @@
 
   <!-- Pie de página -->
   <footer>
-    <p>&copy; 2025 Amitges by Reyes & Yoli</p>
+    <p>&copy; 2025 Amitges by Reyes y Yoli. Todos los derechos reservados.</p>
   </footer>
 
   <script>
     let carrito = [];
 
+    // Función para mostrar/ocultar el carrito
     function toggleCarrito() {
-      const carritoContenido = document.getElementById('carrito-contenido');
-      carritoContenido.style.display = carritoContenido.style.display === 'block' ? 'none' : 'block';
+      const carritoContenido = document.getElementById("carrito-contenido");
+      if (carritoContenido.style.display === "block") {
+        carritoContenido.style.display = "none";
+      } else {
+        carritoContenido.style.display = "block";
+        actualizarCarrito();
+      }
     }
 
+    // Función para agregar productos al carrito
     function agregarAlCarrito(producto) {
       carrito.push(producto);
       actualizarCarrito();
     }
 
+    // Función para actualizar la vista del carrito
     function actualizarCarrito() {
-      const carritoContenido = document.getElementById('carrito-contenido');
-      const carritoBtn = document.querySelector('.carrito-btn');
-      carritoBtn.textContent = `Carrito (${carrito.length})`;
+      const carritoContenido = document.getElementById("carrito-contenido");
+      const carritoBtn = document.querySelector(".carrito-btn");
+
       if (carrito.length === 0) {
-        carritoContenido.innerHTML = `<p>No hay productos en el carrito</p><button onclick="vaciarCarrito()">Vaciar carrito</button>`;
+        carritoContenido.innerHTML = "<p>No hay productos en el carrito</p><button onclick='vaciarCarrito()'>Vaciar carrito</button>";
       } else {
-        carritoContenido.innerHTML = `<p>Productos en el carrito:</p><ul>${carrito.map(item => `<li>${item}</li>`).join('')}</ul><button onclick="vaciarCarrito()">Vaciar carrito</button>`;
+        carritoContenido.innerHTML = "<p>Productos en el carrito:</p><ul>" + carrito.map(item => "<li>" + item + "</li>").join("") + "</ul><button onclick='vaciarCarrito()'>Vaciar carrito</button>";
+        carritoBtn.textContent = "Carrito (" + carrito.length + ")";
       }
     }
 
+    // Función para vaciar el carrito
     function vaciarCarrito() {
       carrito = [];
       actualizarCarrito();
     }
 
+    // Función para mostrar/ocultar las categorías
     function toggleCategorias(categoria) {
-      const categorias = document.querySelectorAll('.categorias');
-      categorias.forEach(c => c.style.display = 'none');
-      document.getElementById(`categorias-${categoria}`).style.display = 'block';
+      const categoriaElement = document.getElementById("categorias-" + categoria);
+      categoriaElement.style.display = categoriaElement.style.display === "none" ? "block" : "none";
     }
   </script>
 </body>
