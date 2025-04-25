@@ -347,10 +347,19 @@
       }
     }
 
-    // Mostrar carrito cuando se abre
-    function mostrarCarrito() {
-      if (carrito.length === 0) {
-        document.getElementById('carrito-contenido').innerHTML = "<p>No hay productos en el carrito</p>";
+    // Función para alternar la visibilidad de las categorías
+    function toggleCategorias(categoria) {
+      const categorias = document.querySelectorAll('.categorias');
+      const categoriaElemento = document.getElementById(`categorias-${categoria}`);
+
+      // Ocultar todas las categorías primero
+      categorias.forEach(c => c.style.display = 'none');
+
+      // Mostrar u ocultar la categoría seleccionada
+      if (categoriaElemento.style.display === 'block') {
+        categoriaElemento.style.display = 'none';
+      } else {
+        categoriaElemento.style.display = 'block';
       }
     }
   </script>
