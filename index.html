@@ -56,7 +56,7 @@
 
     .banner {
       background-color: #F3EDF1;
-      padding: 100px 20px 60px;
+      padding: 100px 20px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -86,9 +86,11 @@
       z-index: 2;
     }
 
-    .separador {
-      border-top: 2px solid #5A3D57; /* línea morada */
-      margin: 0 20px 40px;
+    .linea-morada {
+      height: 2px;
+      background-color: #5A3D57;
+      width: 80%;
+      margin: 20px auto 0;
     }
 
     .productos-destacados {
@@ -179,10 +181,8 @@
   <!-- Banner -->
   <section class="banner" id="home">
     <h1>¡Verano SS 25!</h1>
+    <div class="linea-morada"></div>
   </section>
-
-  <!-- Línea de separación -->
-  <div class="separador"></div>
 
   <!-- Productos destacados -->
   <section class="productos-destacados" id="shop">
