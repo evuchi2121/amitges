@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amitges by Reyes & Yoli</title>
   <style>
-    /* Estilo general */
     body {
       font-family: 'Georgia', serif;
       margin: 0;
@@ -36,7 +35,6 @@
       align-items: center;
     }
 
-    /* Ajuste para el logo */
     .logo img {
       display: block;
       max-height: 60px;
@@ -83,6 +81,8 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 30px;
+      position: relative;
+      z-index: 2;
     }
 
     .producto {
@@ -139,6 +139,17 @@
       color: white;
       font-size: 0.95em;
     }
+
+    /* Fondo decorativo en Productos Destacados */
+    .fondo-logo {
+      background-image: url('logo-fondo.png');
+      background-repeat: no-repeat;
+      background-position: center 80px;
+      background-size: 300px;
+      background-attachment: scroll;
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
@@ -162,8 +173,8 @@
     <h1>¡Nuevas colecciones de primavera ya disponibles!</h1>
   </section>
 
-  <!-- Productos destacados -->
-  <section class="productos-destacados" id="shop">
+  <!-- Productos destacados con fondo de logo -->
+  <section class="productos-destacados fondo-logo" id="shop">
     <h2>Productos Destacados</h2>
     <div class="productos">
       <div class="producto">
