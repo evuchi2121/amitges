@@ -160,6 +160,26 @@
       text-decoration: none;
     }
 
+    .marcas {
+      margin-top: 15px;
+      display: none;
+      text-align: left;
+    }
+
+    .marcas ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .marcas li {
+      margin-bottom: 10px;
+    }
+
+    .marcas a {
+      color: #5A3D57;
+      text-decoration: none;
+    }
+
     .sobre-nosotras, .contacto {
       background: #F3EDF1;
       padding: 40px 20px;
@@ -221,6 +241,13 @@
           <li><a href="ropa-nino.html" onclick="agregarCarrito('Ropa - Niñ@')">Niñ@</a></li>
         </ul>
       </div>
+      <div class="marcas" id="marcas-ropa">
+        <ul>
+          <li><a href="marca-ropa-1.html">Marca 1</a></li>
+          <li><a href="marca-ropa-2.html">Marca 2</a></li>
+          <li><a href="marca-ropa-3.html">Marca 3</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="producto">
@@ -233,6 +260,13 @@
           <li><a href="calzado-nino.html" onclick="agregarCarrito('Calzado - Niñ@')">Niñ@</a></li>
         </ul>
       </div>
+      <div class="marcas" id="marcas-calzado">
+        <ul>
+          <li><a href="marca-calzado-1.html">Marca 1</a></li>
+          <li><a href="marca-calzado-2.html">Marca 2</a></li>
+          <li><a href="marca-calzado-3.html">Marca 3</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="producto">
@@ -243,6 +277,13 @@
           <li><a href="ropa-interior-senora.html" onclick="agregarCarrito('Interior - Señora')">Señora</a></li>
           <li><a href="ropa-interior-caballero.html" onclick="agregarCarrito('Interior - Caballero')">Caballero</a></li>
           <li><a href="ropa-interior-nino.html" onclick="agregarCarrito('Interior - Niñ@')">Niñ@</a></li>
+        </ul>
+      </div>
+      <div class="marcas" id="marcas-interior">
+        <ul>
+          <li><a href="marca-interior-1.html">Marca 1</a></li>
+          <li><a href="marca-interior-2.html">Marca 2</a></li>
+          <li><a href="marca-interior-3.html">Marca 3</a></li>
         </ul>
       </div>
     </div>
@@ -276,8 +317,13 @@
   let carrito = [];
 
   function toggleCarrito() {
-    const contenido = document.getElementById('carrito-contenido');
-    contenido.style.display = contenido.style.display === 'block' ? 'none' : 'block';
+    const carritoContenido = document.getElementById('carrito-contenido');
+    carritoContenido.style.display = carritoContenido.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarCarrito();
   }
 
   function agregarCarrito(producto) {
@@ -286,25 +332,25 @@
   }
 
   function actualizarCarrito() {
-    const contenido = document.getElementById('carrito-contenido');
-    const botonCarrito = document.querySelector('.carrito-btn');
-    if (carrito.length === 0) {
-      contenido.innerHTML = '<p>No hay productos.</p><button onclick="vaciarCarrito()">Vaciar carrito</button>';
-    } else {
-      contenido.innerHTML = '<p>Productos:</p><ul>' + carrito.map(item => `<li>${item}</li>`).join('') + '</ul><button onclick="vaciarCarrito()">Vaciar carrito</button>';
-    }
-    botonCarrito.innerText = `Carrito (${carrito.length})`;
+    const carritoContenido = document.getElementById('carrito-contenido');
+    carritoContenido.innerHTML = carrito.length === 0
+      ? '<p>No hay productos.</p>'
+      : `<p>${carrito.length} productos en el carrito.</p><button onclick="vaciarCarrito()">Vaciar carrito</button>`;
   }
 
-  function vaciarCarrito() {
-    carrito = [];
-    actualizarCarrito();
-  }
-
-  function mostrarCategorias(tipo) {
-    const categorias = document.querySelectorAll('.categorias');
-    categorias.forEach(cat => cat.style.display = 'none');
-    document.getElementById('cat-' + tipo).style.display = 'block';
+  function mostrarCategorias(categoria) {
+    const categorias = ['ropa', 'calzado', 'interior'];
+    categorias.forEach(cat => {
+      const catElement = document.getElementById(`cat-${cat}`);
+      const marcasElement = document.getElementById(`marcas-${cat}`);
+      if (cat === categoria) {
+        catElement.style.display = catElement.style.display === 'block' ? 'none' : 'block';
+        marcasElement.style.display = marcasElement.style.display === 'block' ? 'none' : 'block';
+      } else {
+        catElement.style.display = 'none';
+        marcasElement.style.display = 'none';
+      }
+    });
   }
 </script>
 
