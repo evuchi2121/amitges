@@ -173,6 +173,10 @@
       padding: 15px 10px;
       font-size: 0.9em;
     }
+
+    .categorias.abierto {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -212,8 +216,7 @@
   <h2>¡Colección Verano SS25!</h2>
   <div class="productos">
     <div class="producto">
-      <h3>Ropa</h3>
-      <button onclick="mostrarCategorias('ropa')">Elegir</button>
+      <h3><a href="javascript:void(0)" onclick="toggleCategorias('ropa')">Ropa</a></h3>
       <div class="categorias" id="cat-ropa">
         <ul>
           <li><a href="ropa-senora.html" onclick="agregarCarrito('Ropa - Señora')">Señora</a></li>
@@ -224,8 +227,7 @@
     </div>
 
     <div class="producto">
-      <h3>Calzado</h3>
-      <button onclick="mostrarCategorias('calzado')">Elegir</button>
+      <h3><a href="javascript:void(0)" onclick="toggleCategorias('calzado')">Calzado</a></h3>
       <div class="categorias" id="cat-calzado">
         <ul>
           <li><a href="calzado-caballero.html" onclick="agregarCarrito('Calzado - Caballero')">Caballero</a></li>
@@ -234,8 +236,7 @@
     </div>
 
     <div class="producto">
-      <h3>Ropa interior</h3>
-      <button onclick="mostrarCategorias('interior')">Elegir</button>
+      <h3><a href="javascript:void(0)" onclick="toggleCategorias('interior')">Ropa interior</a></h3>
       <div class="categorias" id="cat-interior">
         <ul>
           <li><a href="ropa-interior-senora.html" onclick="agregarCarrito('Interior - Señora')">Señora</a></li>
@@ -299,10 +300,15 @@
     actualizarCarrito();
   }
 
-  function mostrarCategorias(tipo) {
+  function toggleCategorias(categoria) {
     const categorias = document.querySelectorAll('.categorias');
-    categorias.forEach(cat => cat.style.display = 'none');
-    document.getElementById('cat-' + tipo).style.display = 'block';
+    categorias.forEach(cat => {
+      if (cat.id === 'cat-' + categoria) {
+        cat.classList.toggle('abierto');
+      } else {
+        cat.classList.remove('abierto');
+      }
+    });
   }
 </script>
 
