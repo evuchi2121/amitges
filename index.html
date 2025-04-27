@@ -158,6 +158,7 @@
     .categorias a {
       color: #5A3D57;
       text-decoration: none;
+      cursor: pointer;
     }
 
     .marcas {
@@ -236,16 +237,16 @@
       <button onclick="mostrarCategorias('ropa')">Elegir</button>
       <div class="categorias" id="cat-ropa">
         <ul>
-          <li><a href="ropa-senora.html" onclick="agregarCarrito('Ropa - Señora')">Señora</a></li>
-          <li><a href="ropa-caballero.html" onclick="agregarCarrito('Ropa - Caballero')">Caballero</a></li>
-          <li><a href="ropa-nino.html" onclick="agregarCarrito('Ropa - Niñ@')">Niñ@</a></li>
+          <li><span onclick="mostrarMarcas('ropa', 'senora')">Señora</span></li>
+          <li><span onclick="mostrarMarcas('ropa', 'caballero')">Caballero</span></li>
+          <li><span onclick="mostrarMarcas('ropa', 'nino')">Niñ@</span></li>
         </ul>
       </div>
       <div class="marcas" id="marcas-ropa">
         <ul>
-          <li><a href="marca-ropa-1.html">Marca 1</a></li>
-          <li><a href="marca-ropa-2.html">Marca 2</a></li>
-          <li><a href="marca-ropa-3.html">Marca 3</a></li>
+          <li><span onclick="mostrarProductos('ropa', 'marca1')">Marca 1</span></li>
+          <li><span onclick="mostrarProductos('ropa', 'marca2')">Marca 2</span></li>
+          <li><span onclick="mostrarProductos('ropa', 'marca3')">Marca 3</span></li>
         </ul>
       </div>
     </div>
@@ -255,16 +256,16 @@
       <button onclick="mostrarCategorias('calzado')">Elegir</button>
       <div class="categorias" id="cat-calzado">
         <ul>
-          <li><a href="calzado-senora.html" onclick="agregarCarrito('Calzado - Señora')">Señora</a></li>
-          <li><a href="calzado-caballero.html" onclick="agregarCarrito('Calzado - Caballero')">Caballero</a></li>
-          <li><a href="calzado-nino.html" onclick="agregarCarrito('Calzado - Niñ@')">Niñ@</a></li>
+          <li><span onclick="mostrarMarcas('calzado', 'senora')">Señora</span></li>
+          <li><span onclick="mostrarMarcas('calzado', 'caballero')">Caballero</span></li>
+          <li><span onclick="mostrarMarcas('calzado', 'nino')">Niñ@</span></li>
         </ul>
       </div>
       <div class="marcas" id="marcas-calzado">
         <ul>
-          <li><a href="marca-calzado-1.html">Marca 1</a></li>
-          <li><a href="marca-calzado-2.html">Marca 2</a></li>
-          <li><a href="marca-calzado-3.html">Marca 3</a></li>
+          <li><span onclick="mostrarProductos('calzado', 'marca1')">Marca 1</span></li>
+          <li><span onclick="mostrarProductos('calzado', 'marca2')">Marca 2</span></li>
+          <li><span onclick="mostrarProductos('calzado', 'marca3')">Marca 3</span></li>
         </ul>
       </div>
     </div>
@@ -274,16 +275,16 @@
       <button onclick="mostrarCategorias('interior')">Elegir</button>
       <div class="categorias" id="cat-interior">
         <ul>
-          <li><a href="ropa-interior-senora.html" onclick="agregarCarrito('Interior - Señora')">Señora</a></li>
-          <li><a href="ropa-interior-caballero.html" onclick="agregarCarrito('Interior - Caballero')">Caballero</a></li>
-          <li><a href="ropa-interior-nino.html" onclick="agregarCarrito('Interior - Niñ@')">Niñ@</a></li>
+          <li><span onclick="mostrarMarcas('interior', 'senora')">Señora</span></li>
+          <li><span onclick="mostrarMarcas('interior', 'caballero')">Caballero</span></li>
+          <li><span onclick="mostrarMarcas('interior', 'nino')">Niñ@</span></li>
         </ul>
       </div>
       <div class="marcas" id="marcas-interior">
         <ul>
-          <li><a href="marca-interior-1.html">Marca 1</a></li>
-          <li><a href="marca-interior-2.html">Marca 2</a></li>
-          <li><a href="marca-interior-3.html">Marca 3</a></li>
+          <li><span onclick="mostrarProductos('interior', 'marca1')">Marca 1</span></li>
+          <li><span onclick="mostrarProductos('interior', 'marca2')">Marca 2</span></li>
+          <li><span onclick="mostrarProductos('interior', 'marca3')">Marca 3</span></li>
         </ul>
       </div>
     </div>
@@ -351,6 +352,16 @@
         marcasElement.style.display = 'none';
       }
     });
+  }
+
+  function mostrarMarcas(categoria, subcategoria) {
+    const marcasElement = document.getElementById(`marcas-${categoria}`);
+    marcasElement.style.display = marcasElement.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function mostrarProductos(categoria, marca) {
+    console.log(`Mostrando productos de ${categoria} - Marca ${marca}`);
+    // Aquí podrías agregar la lógica para mostrar los productos de esa marca
   }
 </script>
 
