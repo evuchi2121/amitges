@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda - Amitges by Reyes & Yoli</title>
+  <style>
+    /* Aquí puedes personalizar los estilos para tu tienda */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3;
+    }
+    header {
+      background-color: #5A3D57;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    .logo img {
+      max-height: 50px;
+    }
+    .nombre-logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .carrito-btn {
+      background-color: #d1a3d3;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .carrito-btn:hover {
+      background-color: #402A3C;
+    }
+    .productos {
+      display: flex;
+      gap: 20px;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+    .producto {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 200px;
+    }
+    .producto h3 {
+      margin: 10px 0;
+    }
+    .producto button {
+      background-color: #5A3D57;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .producto button:hover {
+      background-color: #402A3C;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo-amitges.png" alt="Logo Amitges">
+    <span class="nombre-logo">Amitges by Reyes & Yoli</span>
+  </div>
+  <button class="carrito-btn" onclick="window.location.href='carrito.html'">Ver carrito</button>
+</header>
+
+<div class="productos">
+  <!-- Producto 1 -->
+  <div class="producto">
+    <h3>Vestido Señora</h3>
+    <button onclick="agregarCarrito('Vestido Señora')">Añadir al carrito</button>
+  </div>
+
+  <!-- Producto 2 -->
+  <div class="producto">
+    <h3>Camisa Caballero</h3>
+    <button onclick="agregarCarrito('Camisa Caballero')">Añadir al carrito</button>
+  </div>
+
+  <!-- Puedes seguir añadiendo más productos aquí -->
+</div>
+
+<script>
+  // Función para añadir un producto al carrito
+  function agregarCarrito(producto) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push(producto);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    alert('Producto añadido al carrito');
+  }
+</script>
+
+</body>
+</html>
