@@ -140,26 +140,6 @@
       background-color: #402A3C;
     }
 
-    .categorias {
-      margin-top: 15px;
-      display: none;
-      text-align: left;
-    }
-
-    .categorias ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .categorias li {
-      margin-bottom: 10px;
-    }
-
-    .categorias a {
-      color: #5A3D57;
-      text-decoration: none;
-    }
-
     .sobre-nosotras, .contacto {
       background: #F3EDF1;
       padding: 40px 20px;
@@ -172,10 +152,6 @@
       text-align: center;
       padding: 15px 10px;
       font-size: 0.9em;
-    }
-
-    .categorias.abierto {
-      display: block;
     }
   </style>
 </head>
@@ -216,32 +192,32 @@
   <h2>¡Colección Verano SS25!</h2>
   <div class="productos">
     <div class="producto">
-      <h3><a href="javascript:void(0)" onclick="toggleCategorias('ropa')">Ropa</a></h3>
-      <div class="categorias" id="cat-ropa">
+      <h3>Ropa</h3>
+      <div class="categorias">
         <ul>
-          <li><a href="ropa-senora.html" onclick="agregarCarrito('Ropa - Señora')">Señora</a></li>
-          <li><a href="ropa-caballero.html" onclick="agregarCarrito('Ropa - Caballero')">Caballero</a></li>
-          <li><a href="ropa-nino.html" onclick="agregarCarrito('Ropa - Niñ@')">Niñ@</a></li>
+          <li><a href="ropa-senora.html">Señora</a></li>
+          <li><a href="ropa-caballero.html">Caballero</a></li>
+          <li><a href="ropa-nino.html">Niñ@</a></li>
         </ul>
       </div>
     </div>
 
     <div class="producto">
-      <h3><a href="javascript:void(0)" onclick="toggleCategorias('calzado')">Calzado</a></h3>
-      <div class="categorias" id="cat-calzado">
+      <h3>Calzado</h3>
+      <div class="categorias">
         <ul>
-          <li><a href="calzado-caballero.html" onclick="agregarCarrito('Calzado - Caballero')">Caballero</a></li>
+          <li><a href="calzado-caballero.html">Caballero</a></li>
         </ul>
       </div>
     </div>
 
     <div class="producto">
-      <h3><a href="javascript:void(0)" onclick="toggleCategorias('interior')">Ropa interior</a></h3>
-      <div class="categorias" id="cat-interior">
+      <h3>Ropa interior</h3>
+      <div class="categorias">
         <ul>
-          <li><a href="ropa-interior-senora.html" onclick="agregarCarrito('Interior - Señora')">Señora</a></li>
-          <li><a href="ropa-interior-caballero.html" onclick="agregarCarrito('Interior - Caballero')">Caballero</a></li>
-          <li><a href="ropa-interior-nino.html" onclick="agregarCarrito('Interior - Niñ@')">Niñ@</a></li>
+          <li><a href="ropa-interior-senora.html">Señora</a></li>
+          <li><a href="ropa-interior-caballero.html">Caballero</a></li>
+          <li><a href="ropa-interior-nino.html">Niñ@</a></li>
         </ul>
       </div>
     </div>
@@ -253,7 +229,7 @@
 <!-- Sobre nosotras -->
 <section class="sobre-nosotras" id="about">
   <h2>Sobre nosotras</h2>
-  <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜. Nuestra pasión es ofrecer ropa y calzado para toda la familia con amor y estilo.</p>
+  <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras. Nuestra pasión es ofrecer ropa y calzado para toda la familia con amor y estilo.</p>
 </section>
 
 <!-- Contacto -->
@@ -298,17 +274,6 @@
   function vaciarCarrito() {
     carrito = [];
     actualizarCarrito();
-  }
-
-  function toggleCategorias(categoria) {
-    const categorias = document.querySelectorAll('.categorias');
-    categorias.forEach(cat => {
-      if (cat.id === 'cat-' + categoria) {
-        cat.classList.toggle('abierto');
-      } else {
-        cat.classList.remove('abierto');
-      }
-    });
   }
 </script>
 
