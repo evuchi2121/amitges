@@ -45,10 +45,6 @@
       padding: 0;
     }
 
-    nav li {
-      position: relative;
-    }
-
     nav a {
       color: white;
       text-decoration: none;
@@ -57,34 +53,6 @@
 
     nav a:hover {
       color: #d1c0d0;
-    }
-
-    /* Menú desplegable */
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #5A3D57;
-      min-width: 160px;
-      z-index: 1;
-      border-radius: 5px;
-      top: 100%;
-      left: 0;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .dropdown-content a {
-      padding: 12px 16px;
-      display: block;
-      color: white;
-      text-decoration: none;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #402A3C;
-    }
-
-    nav li:hover .dropdown-content {
-      display: block;
     }
 
     .carrito {
@@ -98,6 +66,21 @@
       border-radius: 6px;
       padding: 8px 15px;
       cursor: pointer;
+    }
+
+    .carrito-contenido {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 40px;
+      background: white;
+      color: #2D1D2B;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      min-width: 200px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      z-index: 10;
     }
 
     .banner {
@@ -158,6 +141,31 @@
       background-color: #402A3C;
     }
 
+    .categorias {
+      margin-top: 15px;
+      display: none;
+      text-align: left;
+    }
+
+    .categorias ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .categorias li {
+      margin-bottom: 10px;
+    }
+
+    .categorias a {
+      color: #5A3D57;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .categorias a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       background-color: #5A3D57;
       color: white;
@@ -170,6 +178,7 @@
 </head>
 <body>
 
+<!-- Header -->
 <header>
   <div class="logo">
     <img src="logo-amitges.png" alt="Logo Amitges">
@@ -178,65 +187,76 @@
   <nav>
     <ul>
       <li><a href="#home">Inicio</a></li>
-      <li>
-        <a href="#">Tienda</a>
-        <div class="dropdown-content">
-          <a href="ropa.html">Ropa</a>
-          <a href="calzado.html">Calzado</a>
-          <a href="ropa-interior.html">Ropa Interior</a>
-        </div>
-      </li>
+      <li><a href="#shop">Tienda</a></li>
       <li><a href="#about">Sobre nosotras</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
   </nav>
   <div class="carrito">
-    <a href="carrito.html" class="carrito-btn">Carrito (0)</a>
+    <button class="carrito-btn" onclick="toggleCarrito()">Carrito (0)</button>
+    <div class="carrito-contenido" id="carrito-contenido">
+      <p>No hay productos.</p>
+      <button onclick="vaciarCarrito()">Vaciar carrito</button>
+    </div>
   </div>
 </header>
 
+<!-- Banner -->
 <section class="banner" id="home">
   <img src="imagen-banner.jpg" alt="Verano SS25">
 </section>
 
 <div class="linea"></div>
 
-<section class="productos-destacados">
+<!-- Productos -->
+<section class="productos-destacados" id="shop">
   <h2>¡Colección Verano SS25!</h2>
   <div class="productos">
     <div class="producto">
-      <h3><a href="ropa.html#caballero">Ropa Caballero</a></h3>
-    </div>
-    <div class="producto">
-      <h3><a href="ropa.html#senora">Ropa Señora</a></h3>
-    </div>
-    <div class="producto">
-      <h3><a href="ropa.html#nino">Ropa Niñ@</a></h3>
-    </div>
-    
-    <div class="producto">
-      <h3><a href="calzado.html#caballero">Calzado Caballero</a></h3>
+      <h3>Ropa</h3>
+      <button onclick="mostrarCategorias('ropa')">Elegir</button>
+      <div class="categorias" id="cat-ropa">
+        <ul>
+          <li><a href="ropa-caballero.html">Caballero</a></li>
+          <li><a href="ropa-senora.html">Señora</a></li>
+          <li><a href="ropa-nina.html">Niñ@</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="producto">
-      <h3><a href="ropa-interior.html#caballero">Ropa Interior Caballero</a></h3>
+      <h3>Calzado</h3>
+      <button onclick="mostrarCategorias('calzado')">Elegir</button>
+      <div class="categorias" id="cat-calzado">
+        <ul>
+          <li><a href="calzado-caballero.html">Caballero</a></li>
+        </ul>
+      </div>
     </div>
+
     <div class="producto">
-      <h3><a href="ropa-interior.html#senora">Ropa Interior Señora</a></h3>
-    </div>
-    <div class="producto">
-      <h3><a href="ropa-interior.html#nino">Ropa Interior Niñ@</a></h3>
+      <h3>Ropa interior</h3>
+      <button onclick="mostrarCategorias('interior')">Elegir</button>
+      <div class="categorias" id="cat-interior">
+        <ul>
+          <li><a href="interior-senora.html">Señora</a></li>
+          <li><a href="interior-caballero.html">Caballero</a></li>
+          <li><a href="interior-nina.html">Niñ@</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="linea"></div>
 
+<!-- Sobre nosotras -->
 <section class="sobre-nosotras" id="about">
   <h2>Sobre nosotras</h2>
   <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜. Nuestra pasión es ofrecer ropa y calzado para toda la familia con amor y estilo.</p>
 </section>
 
+<!-- Contacto -->
 <section class="contacto" id="contact">
   <h2>Contacto</h2>
   <p>Teléfono: <a href="tel:+34640897645">640 897645</a></p>
@@ -245,9 +265,51 @@
   <p>Dirección: Avenida Castellón, 30, Benicasim, Castellón</p>
 </section>
 
+<!-- Footer -->
 <footer>
   <p>&copy; 2025 Amitges by Reyes & Yoli. Todos los derechos reservados.</p>
 </footer>
+
+<!-- Script -->
+<script>
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+  window.onload = actualizarCarrito;
+
+  function toggleCarrito() {
+    const contenido = document.getElementById('carrito-contenido');
+    contenido.style.display = contenido.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function agregarCarrito(producto) {
+    carrito.push(producto);
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    const contenido = document.getElementById('carrito-contenido');
+    const botonCarrito = document.querySelector('.carrito-btn');
+    if (carrito.length === 0) {
+      contenido.innerHTML = '<p>No hay productos.</p><button onclick="vaciarCarrito()">Vaciar carrito</button>';
+    } else {
+      contenido.innerHTML = '<p>Productos:</p><ul>' + carrito.map(item => `<li>${item}</li>`).join('') + '</ul><button onclick="vaciarCarrito()">Vaciar carrito</button>';
+    }
+    botonCarrito.innerHTML = `Carrito (${carrito.length})`;
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }
+
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarCarrito();
+  }
+
+  function mostrarCategorias(categoria) {
+    const categorias = document.querySelectorAll('.categorias');
+    categorias.forEach(cat => cat.style.display = 'none');
+    const categoriaElement = document.getElementById(`cat-${categoria}`);
+    categoriaElement.style.display = 'block';
+  }
+</script>
 
 </body>
 </html>
