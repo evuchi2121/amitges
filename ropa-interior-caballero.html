@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ropa Interior - Caballero | Amitges by Reyes & Yoli</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: #2D1D2B;
+    }
+
+    header {
+      background-color: #5A3D57;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      max-height: 50px;
+    }
+
+    .nombre-logo {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #d1c0d0;
+    }
+
+    .productos-destacados {
+      padding: 40px 20px;
+      background: #FFFFFF;
+      text-align: center;
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .producto {
+      background: #F3EDF1;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+    }
+
+    .producto button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background-color: #5A3D57;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .producto button:hover {
+      background-color: #402A3C;
+    }
+
+    footer {
+      background-color: #5A3D57;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo-amitges.png" alt="Logo Amitges">
+    <span class="nombre-logo">Amitges by Reyes & Yoli</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="ropa-senora.html">Ropa - Señora</a></li>
+      <li><a href="ropa-caballero.html">Ropa - Caballero</a></li>
+      <li><a href="ropa-nino.html">Ropa - Niñ@</a></li>
+      <li><a href="ropa-interior-caballero.html">Ropa Interior - Caballero</a></li>
+      <li><a href="#about">Sobre nosotras</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Productos Ropa Interior - Caballero -->
+<section class="productos-destacados">
+  <h2>Ropa Interior - Caballero</h2>
+  <div class="productos">
+    <div class="producto">
+      <img src="producto1-ropa-interior-caballero.jpg" alt="Producto 1 Ropa Interior Caballero">
+      <h3>Bóxers Algodón</h3>
+      <button>Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="producto2-ropa-interior-caballero.jpg" alt="Producto 2 Ropa Interior Caballero">
+      <h3>Camiseta Interior</h3>
+      <button>Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="producto3-ropa-interior-caballero.jpg" alt="Producto 3 Ropa Interior Caballero">
+      <h3>Conjunto de Bóxers</h3>
+      <button>Agregar al carrito</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Amitges by Reyes & Yoli. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
