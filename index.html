@@ -219,17 +219,36 @@
   <div class="productos">
     <div class="producto">
       <h3>Ropa</h3>
-      <button onclick="agregarAlCarrito('Ropa Caballero')">Elegir</button>
+      <button onclick="mostrarCategorias('ropa')">Elegir</button>
+      <div class="categorias" id="cat-ropa">
+        <ul>
+          <li><a href="ropa-senora.html">Señora</a></li>
+          <li><a href="ropa-caballero.html">Caballero</a></li>
+          <li><a href="ropa-nino.html">Niñ@</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="producto">
       <h3>Calzado</h3>
-      <button onclick="agregarAlCarrito('Calzado Caballero')">Elegir</button>
+      <button onclick="mostrarCategorias('calzado')">Elegir</button>
+      <div class="categorias" id="cat-calzado">
+        <ul>
+          <li><a href="calzado-caballero.html">Caballero</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="producto">
       <h3>Ropa interior</h3>
-      <button onclick="agregarAlCarrito('Ropa Interior Caballero')">Elegir</button>
+      <button onclick="mostrarCategorias('interior')">Elegir</button>
+      <div class="categorias" id="cat-interior">
+        <ul>
+          <li><a href="interior-senora.html">Señora</a></li>
+          <li><a href="interior-caballero.html">Caballero</a></li>
+          <li><a href="interior-nino.html">Niñ@</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -265,7 +284,7 @@
     contenido.style.display = contenido.style.display === 'block' ? 'none' : 'block';
   }
 
-  function agregarAlCarrito(producto) {
+  function agregarCarrito(producto) {
     carrito.push(producto);
     actualizarCarrito();
   }
@@ -287,8 +306,15 @@
     actualizarCarrito();
   }
 
-  // Cargar carrito al inicio
-  actualizarCarrito();
+  function mostrarCategorias(tipo) {
+    const categorias = document.querySelectorAll('.categorias');
+    categorias.forEach(categoria => categoria.style.display = 'none');
+    
+    const categoria = document.getElementById('cat-' + tipo);
+    if (categoria) {
+      categoria.style.display = 'block';
+    }
+  }
 </script>
 
 </body>
