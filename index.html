@@ -80,6 +80,7 @@
       padding: 10px;
       min-width: 200px;
       box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      z-index: 10;
     }
 
     .banner {
@@ -158,6 +159,11 @@
     .categorias a {
       color: #5A3D57;
       text-decoration: none;
+      cursor: pointer;
+    }
+
+    .categorias a:hover {
+      text-decoration: underline;
     }
 
     .sobre-nosotras, .contacto {
@@ -216,9 +222,9 @@
       <button onclick="mostrarCategorias('ropa')">Elegir</button>
       <div class="categorias" id="cat-ropa">
         <ul>
-          <li><a href="ropa-senora.html" onclick="agregarCarrito('Ropa - Señora')">Señora</a></li>
-          <li><a href="ropa-caballero.html" onclick="agregarCarrito('Ropa - Caballero')">Caballero</a></li>
-          <li><a href="ropa-nino.html" onclick="agregarCarrito('Ropa - Niñ@')">Niñ@</a></li>
+          <li><a onclick="agregarCarrito('Ropa - Señora')">Señora</a></li>
+          <li><a onclick="agregarCarrito('Ropa - Caballero')">Caballero</a></li>
+          <li><a onclick="agregarCarrito('Ropa - Niñ@')">Niñ@</a></li>
         </ul>
       </div>
     </div>
@@ -228,9 +234,9 @@
       <button onclick="mostrarCategorias('calzado')">Elegir</button>
       <div class="categorias" id="cat-calzado">
         <ul>
-          <li><a href="calzado-senora.html" onclick="agregarCarrito('Calzado - Señora')">Señora</a></li>
-          <li><a href="calzado-caballero.html" onclick="agregarCarrito('Calzado - Caballero')">Caballero</a></li>
-          <li><a href="calzado-nino.html" onclick="agregarCarrito('Calzado - Niñ@')">Niñ@</a></li>
+          <li><a onclick="agregarCarrito('Calzado - Señora')">Señora</a></li>
+          <li><a onclick="agregarCarrito('Calzado - Caballero')">Caballero</a></li>
+          <li><a onclick="agregarCarrito('Calzado - Niñ@')">Niñ@</a></li>
         </ul>
       </div>
     </div>
@@ -240,9 +246,9 @@
       <button onclick="mostrarCategorias('interior')">Elegir</button>
       <div class="categorias" id="cat-interior">
         <ul>
-          <li><a href="ropa-interior-senora.html" onclick="agregarCarrito('Interior - Señora')">Señora</a></li>
-          <li><a href="ropa-interior-caballero.html" onclick="agregarCarrito('Interior - Caballero')">Caballero</a></li>
-          <li><a href="ropa-interior-nino.html" onclick="agregarCarrito('Interior - Niñ@')">Niñ@</a></li>
+          <li><a onclick="agregarCarrito('Interior - Señora')">Señora</a></li>
+          <li><a onclick="agregarCarrito('Interior - Caballero')">Caballero</a></li>
+          <li><a onclick="agregarCarrito('Interior - Niñ@')">Niñ@</a></li>
         </ul>
       </div>
     </div>
@@ -273,7 +279,7 @@
 
 <!-- Script -->
 <script>
-  let carrito = [];
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
   function toggleCarrito() {
     const contenido = document.getElementById('carrito-contenido');
@@ -294,6 +300,7 @@
       contenido.innerHTML = '<p>Productos:</p><ul>' + carrito.map(item => `<li>${item}</li>`).join('') + '</ul><button onclick="vaciarCarrito()">Vaciar carrito</button>';
     }
     botonCarrito.innerText = `Carrito (${carrito.length})`;
+    localStorage.setItem('carrito', JSON.stringify(carrito));
   }
 
   function vaciarCarrito() {
@@ -306,6 +313,9 @@
     categorias.forEach(cat => cat.style.display = 'none');
     document.getElementById('cat-' + tipo).style.display = 'block';
   }
+
+  // Cargar carrito al inicio
+  actualizarCarrito();
 </script>
 
 </body>
