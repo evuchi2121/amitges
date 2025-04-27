@@ -158,27 +158,6 @@
     .categorias a {
       color: #5A3D57;
       text-decoration: none;
-      cursor: pointer;
-    }
-
-    .marcas {
-      margin-top: 15px;
-      display: none;
-      text-align: left;
-    }
-
-    .marcas ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .marcas li {
-      margin-bottom: 10px;
-    }
-
-    .marcas a {
-      color: #5A3D57;
-      text-decoration: none;
     }
 
     .sobre-nosotras, .contacto {
@@ -237,16 +216,9 @@
       <button onclick="mostrarCategorias('ropa')">Elegir</button>
       <div class="categorias" id="cat-ropa">
         <ul>
-          <li><span onclick="mostrarMarcas('ropa', 'senora')">Señora</span></li>
-          <li><span onclick="mostrarMarcas('ropa', 'caballero')">Caballero</span></li>
-          <li><span onclick="mostrarMarcas('ropa', 'nino')">Niñ@</span></li>
-        </ul>
-      </div>
-      <div class="marcas" id="marcas-ropa">
-        <ul>
-          <li><span onclick="mostrarProductos('ropa', 'marca1')">Marca 1</span></li>
-          <li><span onclick="mostrarProductos('ropa', 'marca2')">Marca 2</span></li>
-          <li><span onclick="mostrarProductos('ropa', 'marca3')">Marca 3</span></li>
+          <li><a href="ropa-senora.html" onclick="agregarCarrito('Ropa - Señora')">Señora</a></li>
+          <li><a href="ropa-caballero.html" onclick="agregarCarrito('Ropa - Caballero')">Caballero</a></li>
+          <li><a href="ropa-nino.html" onclick="agregarCarrito('Ropa - Niñ@')">Niñ@</a></li>
         </ul>
       </div>
     </div>
@@ -256,16 +228,7 @@
       <button onclick="mostrarCategorias('calzado')">Elegir</button>
       <div class="categorias" id="cat-calzado">
         <ul>
-          <li><span onclick="mostrarMarcas('calzado', 'senora')">Señora</span></li>
-          <li><span onclick="mostrarMarcas('calzado', 'caballero')">Caballero</span></li>
-          <li><span onclick="mostrarMarcas('calzado', 'nino')">Niñ@</span></li>
-        </ul>
-      </div>
-      <div class="marcas" id="marcas-calzado">
-        <ul>
-          <li><span onclick="mostrarProductos('calzado', 'marca1')">Marca 1</span></li>
-          <li><span onclick="mostrarProductos('calzado', 'marca2')">Marca 2</span></li>
-          <li><span onclick="mostrarProductos('calzado', 'marca3')">Marca 3</span></li>
+          <li><a href="calzado-caballero.html" onclick="agregarCarrito('Calzado - Caballero')">Caballero</a></li>
         </ul>
       </div>
     </div>
@@ -275,16 +238,9 @@
       <button onclick="mostrarCategorias('interior')">Elegir</button>
       <div class="categorias" id="cat-interior">
         <ul>
-          <li><span onclick="mostrarMarcas('interior', 'senora')">Señora</span></li>
-          <li><span onclick="mostrarMarcas('interior', 'caballero')">Caballero</span></li>
-          <li><span onclick="mostrarMarcas('interior', 'nino')">Niñ@</span></li>
-        </ul>
-      </div>
-      <div class="marcas" id="marcas-interior">
-        <ul>
-          <li><span onclick="mostrarProductos('interior', 'marca1')">Marca 1</span></li>
-          <li><span onclick="mostrarProductos('interior', 'marca2')">Marca 2</span></li>
-          <li><span onclick="mostrarProductos('interior', 'marca3')">Marca 3</span></li>
+          <li><a href="ropa-interior-senora.html" onclick="agregarCarrito('Interior - Señora')">Señora</a></li>
+          <li><a href="ropa-interior-caballero.html" onclick="agregarCarrito('Interior - Caballero')">Caballero</a></li>
+          <li><a href="ropa-interior-nino.html" onclick="agregarCarrito('Interior - Niñ@')">Niñ@</a></li>
         </ul>
       </div>
     </div>
@@ -318,13 +274,8 @@
   let carrito = [];
 
   function toggleCarrito() {
-    const carritoContenido = document.getElementById('carrito-contenido');
-    carritoContenido.style.display = carritoContenido.style.display === 'block' ? 'none' : 'block';
-  }
-
-  function vaciarCarrito() {
-    carrito = [];
-    actualizarCarrito();
+    const contenido = document.getElementById('carrito-contenido');
+    contenido.style.display = contenido.style.display === 'block' ? 'none' : 'block';
   }
 
   function agregarCarrito(producto) {
@@ -333,35 +284,25 @@
   }
 
   function actualizarCarrito() {
-    const carritoContenido = document.getElementById('carrito-contenido');
-    carritoContenido.innerHTML = carrito.length === 0
-      ? '<p>No hay productos.</p>'
-      : `<p>${carrito.length} productos en el carrito.</p><button onclick="vaciarCarrito()">Vaciar carrito</button>`;
+    const contenido = document.getElementById('carrito-contenido');
+    const botonCarrito = document.querySelector('.carrito-btn');
+    if (carrito.length === 0) {
+      contenido.innerHTML = '<p>No hay productos.</p><button onclick="vaciarCarrito()">Vaciar carrito</button>';
+    } else {
+      contenido.innerHTML = '<p>Productos:</p><ul>' + carrito.map(item => `<li>${item}</li>`).join('') + '</ul><button onclick="vaciarCarrito()">Vaciar carrito</button>';
+    }
+    botonCarrito.innerText = `Carrito (${carrito.length})`;
   }
 
-  function mostrarCategorias(categoria) {
-    const categorias = ['ropa', 'calzado', 'interior'];
-    categorias.forEach(cat => {
-      const catElement = document.getElementById(`cat-${cat}`);
-      const marcasElement = document.getElementById(`marcas-${cat}`);
-      if (cat === categoria) {
-        catElement.style.display = catElement.style.display === 'block' ? 'none' : 'block';
-        marcasElement.style.display = marcasElement.style.display === 'block' ? 'none' : 'block';
-      } else {
-        catElement.style.display = 'none';
-        marcasElement.style.display = 'none';
-      }
-    });
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarCarrito();
   }
 
-  function mostrarMarcas(categoria, subcategoria) {
-    const marcasElement = document.getElementById(`marcas-${categoria}`);
-    marcasElement.style.display = marcasElement.style.display === 'block' ? 'none' : 'block';
-  }
-
-  function mostrarProductos(categoria, marca) {
-    console.log(`Mostrando productos de ${categoria} - Marca ${marca}`);
-    // Aquí podrías agregar la lógica para mostrar los productos de esa marca
+  function mostrarCategorias(tipo) {
+    const categorias = document.querySelectorAll('.categorias');
+    categorias.forEach(cat => cat.style.display = 'none');
+    document.getElementById('cat-' + tipo).style.display = 'block';
   }
 </script>
 
