@@ -13,26 +13,13 @@
       color: #2D1D2B;
     }
 
-    h1, h2 {
-      color: #5A3D57;
-    }
-
-    a {
-      text-decoration: none;
-      color: #5A3D57;
-    }
-
-    a:hover {
-      color: #402A3C;
-    }
-
     header {
       background-color: #5A3D57;
       padding: 20px 40px;
-      color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: white;
     }
 
     .logo {
@@ -42,145 +29,32 @@
     }
 
     .logo img {
-      display: block;
       max-height: 50px;
     }
 
     .nombre-logo {
-      font-size: 1.1em;
-      color: white;
+      font-size: 1.2em;
       font-weight: bold;
-      font-family: 'Georgia', serif;
     }
 
-    header nav ul {
+    nav ul {
       list-style: none;
-      padding: 0;
-      margin: 0;
       display: flex;
       gap: 25px;
-    }
-
-    header nav ul li a {
-      color: white;
-      font-weight: 500;
-      font-size: 1em;
-    }
-
-    .banner {
-      background-color: #F3EDF1;
-      padding: 100px 20px 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .banner img {
-      max-width: 55%;
-      height: auto;
-    }
-
-    .linea-morada {
-      height: 2px;
-      background-color: #5A3D57;
-      width: 80%;
-      margin: 20px auto;
-    }
-
-    .productos-destacados {
-      padding: 50px 20px;
-      text-align: center;
-      background-color: #F3EDF1;
-    }
-
-    .productos {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    .producto {
-      width: 260px;
-      background-color: #F3EDF1;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(90, 61, 87, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .producto:hover {
-      transform: translateY(-5px);
-    }
-
-    .producto button {
-      background-color: #5A3D57;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin-top: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-
-    .producto button:hover {
-      background-color: #402A3C;
-    }
-
-    .categorias {
-      display: none;
-      margin-top: 30px;
-      background-color: #F3EDF1;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(90, 61, 87, 0.1);
-    }
-
-    .categorias ul {
-      list-style: none;
+      margin: 0;
       padding: 0;
-      text-align: left;
     }
 
-    .categorias ul li {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-
-    .linea-separadora {
-      height: 2px;
-      background-color: #5A3D57;
-      width: 80%;
-      margin: 50px auto;
-    }
-
-    .sobre-nosotras, .contacto {
-      background-color: #F3EDF1;
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .sobre-nosotras p,
-    .contacto p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    footer {
-      background-color: #5A3D57;
-      padding: 20px;
-      text-align: center;
+    nav a {
       color: white;
-      font-size: 0.95em;
+      text-decoration: none;
+      font-weight: 500;
     }
 
-    .fondo-blanco {
-      background-color: #FFFFFF;
+    nav a:hover {
+      color: #d1c0d0;
     }
 
-    /* Carrito */
     .carrito {
       position: relative;
     }
@@ -188,199 +62,251 @@
     .carrito-btn {
       background-color: #5A3D57;
       color: white;
-      padding: 10px 20px;
-      border: none;
+      border: 1px solid white;
       border-radius: 6px;
+      padding: 8px 15px;
       cursor: pointer;
-    }
-
-    .carrito-btn:hover {
-      background-color: #402A3C;
     }
 
     .carrito-contenido {
+      display: none;
       position: absolute;
       right: 0;
-      top: 100%;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      top: 40px;
+      background: white;
+      color: #2D1D2B;
+      border: 1px solid #ccc;
+      border-radius: 8px;
       padding: 10px;
-      display: none;
-      max-width: 200px;
-      overflow-y: auto;
+      min-width: 200px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
     }
 
-    .carrito-contenido p {
-      margin: 0;
-      font-size: 1.1em;
+    .banner {
+      background: #F3EDF1;
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    .carrito-contenido ul {
-      padding: 0;
-      list-style: none;
-      margin-top: 10px;
+    .banner img {
+      max-width: 80%;
     }
 
-    .carrito-contenido ul li {
-      font-size: 1em;
+    .linea {
+      height: 3px;
+      background: #5A3D57;
+      margin: 40px auto;
+      width: 80%;
     }
 
-    .carrito-contenido button {
-      background-color: #402A3C;
+    .productos-destacados {
+      padding: 40px 20px;
+      background: #FFFFFF;
+      text-align: center;
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .producto {
+      background: #F3EDF1;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+    }
+
+    .producto button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background-color: #5A3D57;
       color: white;
-      padding: 5px 10px;
       border: none;
-      margin-top: 10px;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 1em;
+    }
+
+    .producto button:hover {
+      background-color: #402A3C;
+    }
+
+    .categorias {
+      margin-top: 15px;
+      display: none;
+      text-align: left;
+    }
+
+    .categorias ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .categorias li {
+      margin-bottom: 10px;
+    }
+
+    .categorias a {
+      color: #5A3D57;
+      text-decoration: none;
+    }
+
+    .sobre-nosotras, .contacto {
+      background: #F3EDF1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #5A3D57;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
-  <!-- Encabezado -->
-  <header>
-    <div class="logo">
-      <img src="logo-amitges.png" alt="Amitges by Reyes & Yoli">
-      <span class="nombre-logo">Amitges by Reyes y Yoli</span>
+
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="logo-amitges.png" alt="Logo Amitges">
+    <span class="nombre-logo">Amitges by Reyes & Yoli</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="#shop">Tienda</a></li>
+      <li><a href="#about">Sobre nosotras</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="carrito">
+    <button class="carrito-btn" onclick="toggleCarrito()">Carrito (0)</button>
+    <div class="carrito-contenido" id="carrito-contenido">
+      <p>No hay productos.</p>
+      <button onclick="vaciarCarrito()">Vaciar carrito</button>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#shop">Tienda</a></li>
-        <li><a href="#about">Sobre nosotras</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
+  </div>
+</header>
 
-    <!-- Carrito -->
-    <div class="carrito">
-      <button class="carrito-btn" onclick="toggleCarrito()">Carrito (0)</button>
-      <div class="carrito-contenido" id="carrito-contenido">
-        <p>No hay productos en el carrito</p>
-        <button onclick="vaciarCarrito()">Vaciar carrito</button>
-      </div>
-    </div>
-  </header>
+<!-- Banner -->
+<section class="banner" id="home">
+  <img src="imagen-banner.jpg" alt="Verano SS25">
+</section>
 
-  <!-- Banner -->
-  <section class="banner" id="home">
-    <img src="imagen-banner.jpg" alt="Verano SS 25">
-  </section>
+<div class="linea"></div>
 
-  <!-- Línea morada -->
-  <div class="linea-morada"></div>
-
-  <!-- Productos destacados -->
-  <section class="productos-destacados fondo-blanco" id="shop">
-    <h2>¡Verano SS 25!</h2>
-    <div class="productos">
-      <div class="producto">
-        <p>Ropa</p>
-        <button onclick="toggleCategorias('ropa')">Elegir</button>
-        <div class="categorias" id="categorias-ropa">
-          <h3>Elige una categoría:</h3>
-          <ul>
-            <li><a href="ropa-senora.html" onclick="agregarAlCarrito('Ropa - Señora')">Señora</a></li>
-            <li><a href="ropa-caballero.html" onclick="agregarAlCarrito('Ropa - Caballero')">Caballero</a></li>
-            <li><a href="ropa-nino.html" onclick="agregarAlCarrito('Ropa - Niñ@')">Niñ@</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="producto">
-        <p>Calzado</p>
-        <button onclick="toggleCategorias('calzado')">Elegir</button>
-        <div class="categorias" id="categorias-calzado">
-          <h3>Elige una categoría:</h3>
-          <ul>
-            <li><a href="calzado-senora.html" onclick="agregarAlCarrito('Calzado - Señora')">Señora</a></li>
-            <li><a href="calzado-caballero.html" onclick="agregarAlCarrito('Calzado - Caballero')">Caballero</a></li>
-            <li><a href="calzado-nino.html" onclick="agregarAlCarrito('Calzado - Niñ@')">Niñ@</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="producto">
-        <p>Ropa interior</p>
-        <button onclick="toggleCategorias('ropa-interior')">Elegir</button>
-        <div class="categorias" id="categorias-ropa-interior">
-          <h3>Elige una categoría:</h3>
-          <ul>
-            <li><a href="ropa-interior-senora.html" onclick="agregarAlCarrito('Ropa interior - Señora')">Señora</a></li>
-            <li><a href="ropa-interior-caballero.html" onclick="agregarAlCarrito('Ropa interior - Caballero')">Caballero</a></li>
-            <li><a href="ropa-interior-nino.html" onclick="agregarAlCarrito('Ropa interior - Niñ@')">Niñ@</a></li>
-          </ul>
-        </div>
+<!-- Productos -->
+<section class="productos-destacados" id="shop">
+  <h2>¡Colección Verano SS25!</h2>
+  <div class="productos">
+    <div class="producto">
+      <h3>Ropa</h3>
+      <button onclick="mostrarCategorias('ropa')">Elegir</button>
+      <div class="categorias" id="cat-ropa">
+        <ul>
+          <li><a href="ropa-senora.html" onclick="agregarCarrito('Ropa - Señora')">Señora</a></li>
+          <li><a href="ropa-caballero.html" onclick="agregarCarrito('Ropa - Caballero')">Caballero</a></li>
+          <li><a href="ropa-nino.html" onclick="agregarCarrito('Ropa - Niñ@')">Niñ@</a></li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <!-- Línea separadora -->
-  <div class="linea-separadora"></div>
+    <div class="producto">
+      <h3>Calzado</h3>
+      <button onclick="mostrarCategorias('calzado')">Elegir</button>
+      <div class="categorias" id="cat-calzado">
+        <ul>
+          <li><a href="calzado-senora.html" onclick="agregarCarrito('Calzado - Señora')">Señora</a></li>
+          <li><a href="calzado-caballero.html" onclick="agregarCarrito('Calzado - Caballero')">Caballero</a></li>
+          <li><a href="calzado-nino.html" onclick="agregarCarrito('Calzado - Niñ@')">Niñ@</a></li>
+        </ul>
+      </div>
+    </div>
 
-  <!-- Sobre nosotras -->
-  <section class="sobre-nosotras fondo-blanco" id="about">
-    <h2>Sobre nosotras</h2>
-    <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜</p>
-  </section>
+    <div class="producto">
+      <h3>Ropa interior</h3>
+      <button onclick="mostrarCategorias('interior')">Elegir</button>
+      <div class="categorias" id="cat-interior">
+        <ul>
+          <li><a href="ropa-interior-senora.html" onclick="agregarCarrito('Interior - Señora')">Señora</a></li>
+          <li><a href="ropa-interior-caballero.html" onclick="agregarCarrito('Interior - Caballero')">Caballero</a></li>
+          <li><a href="ropa-interior-nino.html" onclick="agregarCarrito('Interior - Niñ@')">Niñ@</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Contacto -->
-  <section class="contacto fondo-blanco" id="contact">
-    <h2>Contacto</h2>
-    <p>Teléfono: 640 897645</p>
-    <p>Email: <a href="mailto:amitgesbyreyesyyoli@gmail.com">amitgesbyreyesyyoli@gmail.com</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/amitgesbyreyesyyoli" target="_blank">@amitgesbyreyesyyoli</a></p>
-    <p>Dirección: Avenida Castellón, 30, Benicasim, Castellón</p>
-  </section>
+<div class="linea"></div>
 
-  <!-- Pie de página -->
-  <footer>
-    <p>&copy; 2025 Amitges by Reyes y Yoli. Todos los derechos reservados.</p>
-  </footer>
+<!-- Sobre nosotras -->
+<section class="sobre-nosotras" id="about">
+  <h2>Sobre nosotras</h2>
+  <p>Somos Reyes y Yolanda, dos mujeres y mamás emprendedoras 💜. Nuestra pasión es ofrecer ropa y calzado para toda la familia con amor y estilo.</p>
+</section>
 
-  <script>
-    let carrito = [];
+<!-- Contacto -->
+<section class="contacto" id="contact">
+  <h2>Contacto</h2>
+  <p>Teléfono: <a href="tel:+34640897645">640 897645</a></p>
+  <p>Email: <a href="mailto:amitgesbyreyesyyoli@gmail.com">amitgesbyreyesyyoli@gmail.com</a></p>
+  <p>Instagram: <a href="https://www.instagram.com/amitgesbyreyesyyoli/" target="_blank">@amitgesbyreyesyyoli</a></p>
+  <p>Dirección: Avenida Castellón, 30, Benicasim, Castellón</p>
+</section>
 
-    // Función para mostrar/ocultar el carrito
-    function toggleCarrito() {
-      const carritoContenido = document.getElementById("carrito-contenido");
-      if (carritoContenido.style.display === "block") {
-        carritoContenido.style.display = "none";
-      } else {
-        carritoContenido.style.display = "block";
-        actualizarCarrito();
-      }
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Amitges by Reyes & Yoli. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Script -->
+<script>
+  let carrito = [];
+
+  function toggleCarrito() {
+    const contenido = document.getElementById('carrito-contenido');
+    contenido.style.display = contenido.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function agregarCarrito(producto) {
+    carrito.push(producto);
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    const contenido = document.getElementById('carrito-contenido');
+    const botonCarrito = document.querySelector('.carrito-btn');
+    if (carrito.length === 0) {
+      contenido.innerHTML = '<p>No hay productos.</p><button onclick="vaciarCarrito()">Vaciar carrito</button>';
+    } else {
+      contenido.innerHTML = '<p>Productos:</p><ul>' + carrito.map(item => `<li>${item}</li>`).join('') + '</ul><button onclick="vaciarCarrito()">Vaciar carrito</button>';
     }
+    botonCarrito.innerText = `Carrito (${carrito.length})`;
+  }
 
-    // Función para agregar productos al carrito
-    function agregarAlCarrito(producto) {
-      carrito.push(producto);
-      actualizarCarrito();
-    }
+  function vaciarCarrito() {
+    carrito = [];
+    actualizarCarrito();
+  }
 
-    // Función para actualizar la vista del carrito
-    function actualizarCarrito() {
-      const carritoContenido = document.getElementById("carrito-contenido");
-      const carritoBtn = document.querySelector(".carrito-btn");
+  function mostrarCategorias(tipo) {
+    const categorias = document.querySelectorAll('.categorias');
+    categorias.forEach(cat => cat.style.display = 'none');
+    document.getElementById('cat-' + tipo).style.display = 'block';
+  }
+</script>
 
-      if (carrito.length === 0) {
-        carritoContenido.innerHTML = "<p>No hay productos en el carrito</p><button onclick='vaciarCarrito()'>Vaciar carrito</button>";
-      } else {
-        carritoContenido.innerHTML = "<p>Productos en el carrito:</p><ul>" + carrito.map(item => "<li>" + item + "</li>").join("") + "</ul><button onclick='vaciarCarrito()'>Vaciar carrito</button>";
-        carritoBtn.textContent = "Carrito (" + carrito.length + ")";
-      }
-    }
-
-    // Función para vaciar el carrito
-    function vaciarCarrito() {
-      carrito = [];
-      actualizarCarrito();
-    }
-
-    // Función para mostrar/ocultar las categorías
-    function toggleCategorias(categoria) {
-      const categoriaElement = document.getElementById("categorias-" + categoria);
-      categoriaElement.style.display = categoriaElement.style.display === "none" ? "block" : "none";
-    }
-  </script>
 </body>
 </html>
