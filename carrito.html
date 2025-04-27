@@ -6,94 +6,47 @@
   <title>Carrito - Amitges by Reyes & Yoli</title>
   <style>
     body {
-      font-family: 'Georgia', serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #FFFFFF;
-      color: #2D1D2B;
+      background-color: #f3f3f3;
     }
-
     header {
       background-color: #5A3D57;
-      padding: 20px 40px;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: white;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .logo img {
       max-height: 50px;
     }
-
     .nombre-logo {
-      font-size: 1.2em;
+      font-size: 1.5em;
       font-weight: bold;
     }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #d1c0d0;
-    }
-
-    .carrito {
-      position: relative;
-    }
-
     .carrito-btn {
-      background-color: #5A3D57;
-      color: white;
-      border: 1px solid white;
-      border-radius: 6px;
-      padding: 8px 15px;
+      background-color: #d1a3d3;
+      padding: 10px 15px;
+      border: none;
       cursor: pointer;
+      border-radius: 5px;
     }
-
-    .banner {
-      background: #F3EDF1;
-      padding: 60px 20px;
+    .carrito-btn:hover {
+      background-color: #402A3C;
+    }
+    .contenido-carrito {
+      padding: 40px;
       text-align: center;
     }
-
-    .linea {
-      height: 3px;
-      background: #5A3D57;
-      margin: 40px auto;
-      width: 80%;
-    }
-
-    .carrito-contenido {
-      padding: 40px 20px;
-      background: #FFFFFF;
-      text-align: center;
-    }
-
     .producto-carrito {
-      display: flex;
-      justify-content: space-between;
+      background-color: #fff;
       padding: 15px;
-      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     .producto-carrito button {
       background-color: #5A3D57;
       color: white;
@@ -101,68 +54,51 @@
       border: none;
       cursor: pointer;
     }
-
     .producto-carrito button:hover {
       background-color: #402A3C;
     }
-
-    footer {
+    .vaciar-btn, .finalizar-btn {
       background-color: #5A3D57;
       color: white;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 0.9em;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    .vaciar-btn:hover, .finalizar-btn:hover {
+      background-color: #402A3C;
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
   <div class="logo">
     <img src="logo-amitges.png" alt="Logo Amitges">
     <span class="nombre-logo">Amitges by Reyes & Yoli</span>
   </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="shop.html">Tienda</a></li>
-      <li><a href="about.html">Sobre nosotras</a></li>
-      <li><a href="contact.html">Contacto</a></li>
-    </ul>
-  </nav>
+  <button class="carrito-btn" onclick="window.location.href='shop.html'">Volver a la tienda</button>
 </header>
 
-<!-- Carrito -->
-<section class="carrito-contenido">
+<div class="contenido-carrito">
   <h2>Tu carrito de compras</h2>
   <div id="lista-carrito"></div>
-  <div id="total-carrito"></div>
-  <button onclick="vaciarCarrito()">Vaciar carrito</button>
-  <button onclick="finalizarCompra()">Finalizar compra</button>
-</section>
+  <button class="vaciar-btn" onclick="vaciarCarrito()">Vaciar carrito</button>
+  <button class="finalizar-btn" onclick="finalizarCompra()">Finalizar compra</button>
+</div>
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Amitges by Reyes & Yoli. Todos los derechos reservados.</p>
-</footer>
-
-<!-- Script -->
 <script>
   let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
   function mostrarCarrito() {
     const listaCarrito = document.getElementById('lista-carrito');
-    const totalCarrito = document.getElementById('total-carrito');
     listaCarrito.innerHTML = '';
 
     if (carrito.length === 0) {
       listaCarrito.innerHTML = '<p>No hay productos en el carrito.</p>';
-      totalCarrito.innerHTML = '';
     } else {
-      let total = 0;
       carrito.forEach((producto, index) => {
-        total += 1;  // Aquí puedes cambiar para calcular el precio total si lo deseas
         listaCarrito.innerHTML += `
           <div class="producto-carrito">
             <span>${producto}</span>
@@ -170,7 +106,6 @@
           </div>
         `;
       });
-      totalCarrito.innerHTML = `<p>Total: ${total} producto(s)</p>`;
     }
   }
 
